@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>xQuery</string>
+  <key>description</key>
+  <string>MarkLogic XQuery Bundle for Textmate.</string>
+  <key>ordering</key>
+  <array>
+    <string>E735CA8D-DE73-4F25-A4F8-DB04A9DF2CFA</string>
+    <string>51F5AFD0-98EA-4756-B9E4-C257315816B2</string>
+    <string>5FB86104-E38E-4DAA-B929-DF98011DECBD</string>
+    <string>E16A427A-DE27-4A48-897D-D571C8819C81</string>
+    <string>B1441DE9-DF30-4158-BCFD-03A7E5108114</string>
+    <string>080DAA43-3AF6-4E9A-9B97-85F066027543</string>
+    <string>E745DAAB-8826-4E91-AC7C-A2BBC05C836E</string>
+    <string>32047630-70B6-4BCC-A2F8-1CF4ABFFA4CE</string>
+    <string>2FEEE8DB-5C98-4941-B522-EB951B75CBD0</string>
+    <string>047ED5CC-BCFC-4F63-AE94-8E9575D62B68</string>
+    <string>D62097F7-B60F-44C9-BCCC-CF9F3431464E</string>
+    <string>F0B6F7C7-B5E7-47E7-AFBE-0C3A78EBDF94</string>
+    <string>CB7FC908-D910-4B05-9D21-27331F606157</string>
+    <string>615DF8D7-9798-4853-8490-F8F9A30C69F6</string>
+    <string>FFF4320F-79FF-4FA8-A6C0-A3413AB72FEF</string>
+  </array>
+  <key>uuid</key>
+  <string>c05fb846-2f20-41bc-9be9-5492b1c51bbc</string>
+</dict>
+</plist>

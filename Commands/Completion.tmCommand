@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wKU
+require ENV['TM_SUPPORT_PATH'] + "/lib/exit_codes"
+require "#{ENV['TM_SUPPORT_PATH']}/lib/escape"
+require ENV['TM_SUPPORT_PATH'] + '/lib/osx/plist'
+require ENV['TM_SUPPORT_PATH'] + '/lib/ui'
+require "#{ENV['TM_BUNDLE_SUPPORT']}/xquery_parser"
+
+choices = OSX::PropertyList.load(File.read(ENV['TM_BUNDLE_SUPPORT'] + '/functions.plist'))
+
+def caret_position(line)
+  tmp = ENV['TM_LINE_NUMBER'].to_i - ENV['TM_INPUT_START_LINE'].to_i - 1
+  if tmp &gt; 0
+    caret_placement = line.index_of_nth_occurrence_of(tmp,?\n) + ENV['TM_LINE_INDEX'].to_i
+  else
+    caret_placement =ENV['TM_LINE_INDEX'].to_i-ENV['TM_INPUT_START_LINE_INDEX'].to_i - 1
+  end
+end
+
+def match_iter(rgxp,str)
+  offset = 0
+  while m = str.match(rgxp)
+    yield [m[0], m.begin(0) + offset, m[0].length]
+    str = m.post_match
+    offset += m.end(0)
+  end
+end
+
+class String
+  def index_of_nth_occurrence_of(n, ch)
+    self.unpack("U*").each_with_index do |e, i|
+      return i if e == ch &amp;&amp; (n -= 1) == 0
+    end
+    return -1
+  end
+end
+
+line = STDIN.read
+caret_placement = caret_position(line)
+
+pat = /([^-_\.a-zA-Z0-9][_a-zA-Z][-_\.a-zA-Z0-9]*:?([a-zA-Z][a-zA-Z0-9]*)?)/
+matcher = /^([_a-zA-Z][-_\.a-zA-Z0-9]*:?([a-zA-Z][a-zA-Z0-9]*)?)$/
+
+mline = line.gsub(/\n/, " ")
+start = [0]
+
+fromstart = mline.scan(/./u)[0..caret_placement].join
+
+match_iter(pat , fromstart) do |tok, beg, len|
+  start &lt;&lt; beg + 1
+end
+
+precaret = fromstart[start[-1]..-1]
+
+
+match = precaret.match(matcher)
+initial_filter = match ? match.to_s.strip : ""
+
+# print choices[0].to_s
+# print "[#{initial_filter}]"
+parser = XQueryParser.new(line)
+functions = parser.get_functions
+
+choices = choices.concat(functions)
+TextMate::UI.complete(choices, :initial_filter =&gt; initial_filter, :extra_chars =&gt; '_-:')
+
+
+# #!/usr/bin/env ruby -wKU
+# require ENV['TM_SUPPORT_PATH'] + '/lib/osx/plist'
+# require ENV['TM_SUPPORT_PATH'] + '/lib/ui'
+# 
+# choices = OSX::PropertyList.load(File.read(ENV['TM_BUNDLE_SUPPORT'] + '/functions.plist'))
+# TextMate::UI.complete(choices, :initial_filter =&gt; ENV['TM_CURRENT_WORD'], :extra_chars =&gt; '_-:')</string>
+	<key>fallbackInput</key>
+	<string>document</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>~</string>
+	<key>name</key>
+	<string>Completion</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>source.xquery</string>
+	<key>uuid</key>
+	<string>51F5AFD0-98EA-4756-B9E4-C257315816B2</string>
+</dict>
+</plist>

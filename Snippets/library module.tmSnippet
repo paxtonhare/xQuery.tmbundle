@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>xquery version "1.0-ml";
+
+module namespace ${1:ns} = ${2:"http://namespace-uri"};
+
+declare option xdmp:mapping "false";
+
+${3:(: your code here :)}</string>
+	<key>name</key>
+	<string>library module</string>
+	<key>scope</key>
+	<string>source.xquery</string>
+	<key>tabTrigger</key>
+	<string>lib</string>
+	<key>uuid</key>
+	<string>F0B6F7C7-B5E7-47E7-AFBE-0C3A78EBDF94</string>
+</dict>
+</plist>

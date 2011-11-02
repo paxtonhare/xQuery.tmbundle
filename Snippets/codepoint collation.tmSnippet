@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>http://marklogic.com/collation/codepoint</string>
+	<key>name</key>
+	<string>codepoint collation</string>
+	<key>scope</key>
+	<string>string.quoted.double.xquery,string.quoted.single.xquery</string>
+	<key>tabTrigger</key>
+	<string>cp</string>
+	<key>uuid</key>
+	<string>B1441DE9-DF30-4158-BCFD-03A7E5108114</string>
+</dict>
+</plist>

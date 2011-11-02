@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+word = $stdin.gets
+
+print word.gsub(/^(\s*)(.*)(\s*)$/, '\1fn:string(\2)\3')</string>
+	<key>fallbackInput</key>
+	<string>line</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^~@s</string>
+	<key>name</key>
+	<string>string</string>
+	<key>output</key>
+	<string>replaceSelectedText</string>
+	<key>scope</key>
+	<string>source.xquery</string>
+	<key>uuid</key>
+	<string>2FEEE8DB-5C98-4941-B522-EB951B75CBD0</string>
+</dict>
+</plist>

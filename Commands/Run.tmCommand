@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env php 
+&lt;?php
+//
+// Copyright (c)2004-2005 Aromatic Productions
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// The use of the Apache License does not indicate that this project is
+// affiliated with the Apache Software Foundation.
+//
+define('XDBC_ARRAY',  0);
+define('XDBC_XML',    1);
+define('XDBC_HEADER', 2);
+define('XDBC_QUERY',  4);
+
+define('XDBC_PHP_VERSION', "1.4");
+define('XDBC_VERSION',     "2.2-8");
+
+function build_result($list, $flags)
+{
+  if (($flags &amp; XDBC_XML) == 0)
+    return $list;
+
+  $result = "&lt;result&gt;\n";
+
+  foreach($list as $l) {
+    if ($l["x-type"] == "node()") // valid XML node
+      $result .= $l["body"];
+    else
+      $result .= "&lt;entry type=\"" . $l["x-type"] 
+              . "\" content-type=\"" . $l["content-type"]
+              . "\"&gt;" 
+              . $l["body"] . "&lt;/entry&gt;\n";
+  }
+
+  $result .= "&lt;/result&gt;\n";
+  return $result;
+}
+
+function build_error($err, $flags)
+{
+  $err = Array(Array(
+    "content-type" =&gt; "text/xml", "x-type" =&gt; "x-error", "body" =&gt; $err));
+  
+  return build_result($err, $flags);
+}
+
+function xdbc_query(
+  $host, $query, $params=array(), $userpass="", $flags=XDBC_ARRAY)
+{
+
+  $postfields =  "xquery=" . urlencode($query);
+  $keys = array_keys($params);
+  for ($i=0; $i &lt; count($keys); $i++) {
+    $postfields .= "&amp;evn$i=" . urlencode($params[$keys[$i]][2]); // namespace
+    $postfields .= "&amp;evl$i=" . urlencode($keys[$i]);             // local name
+    $postfields .= "&amp;evt$i=" . urlencode($params[$keys[$i]][0]); // schema type
+    $postfields .= "&amp;evv$i=" . urlencode($params[$keys[$i]][1]); // value
+  }
+
+  $h = curl_init();
+
+  curl_setopt($h, CURLOPT_URL, "http://" . $host . "/eval");
+  curl_setopt($h, CURLOPT_HEADER, 1);
+  curl_setopt($h, CURLOPT_POST, 1);
+  curl_setopt($h, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($h, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+  if (!empty($userpass))
+    curl_setopt($h, CURLOPT_USERPWD, $userpass);
+
+  curl_setopt($h, CURLOPT_USERAGENT,
+    "PhpXDBC/" . XDBC_PHP_VERSION . " MarkXDBC/" . XDBC_VERSION);
+
+  curl_setopt($h, CURLOPT_POSTFIELDS, $postfields);
+
+  $ret = curl_exec($h);
+
+  if (curl_errno($h) != 0) {
+    
+    $err = "&lt;error code=\"" . curl_errno($h) . "\"&gt;" . curl_error($h)
+         . "&lt;/error&gt;\n";
+    curl_close($h);
+    
+    return build_error($err, $flags);
+  }
+
+  $code = curl_getinfo($h, CURLINFO_HTTP_CODE);
+  $hsize = curl_getinfo($h, CURLINFO_HEADER_SIZE);
+  $header = substr($ret, 0, $hsize-2);
+  $headers = explode("\n", $header);
+  curl_close($h);
+
+  $content = substr($ret, $hsize);
+
+  if ($code &gt; 400 &amp;&amp; $code &lt; 500)
+    $content = "&lt;error code=\"http-" . $code . "\"&gt;unauthorized&lt;/error&gt;\n";
+  if ($code != 200) {
+    return build_error($content, $flags);
+  }
+
+  foreach($headers as $h) {
+    $h = rtrim($h);
+    if (strlen($h)==0) continue;
+    if (!strpos($h, ":")) continue;
+    list($name, $value) = explode(":", $h);
+
+    if ($name == "Content-Type") {
+      $ctype = ltrim($value);
+      if (strncmp($ctype, "multipart/", 10)==0) {
+        $pos = strpos($value, "boundary=");
+        $boundary = substr($value, $pos+9);
+      } else {
+        $boundary = "";
+      }
+//    break;
+    }
+  }
+
+  $arr = Array();
+
+  if ($flags &amp; XDBC_QUERY) {
+    $arr[] = Array(
+      "content-type" =&gt; "",
+      "x-type" =&gt; "x-query", 
+      "body" =&gt; "&lt;![CDATA[" . $query . "]]&gt;"
+    );
+  }
+  if ($flags &amp; XDBC_HEADER) {
+    $arr[] = Array(
+      "content-type" =&gt; "",
+      "x-type" =&gt; "x-header", 
+      "body" =&gt; $header
+    );
+  }
+
+  if ($boundary != "") {
+    $list = explode("--$boundary", $content);
+    foreach($list as $l) {
+      $l = ltrim($l);
+      if (empty($l)) continue; // first entry
+      if ($l == "--\n") break; // last entry
+
+      list($ctype, $remain) = explode("\n", $l, 2);
+      list($xtype, $body) = explode("\n\n", $remain, 2);
+
+      if (substr($ctype, 0, 14)=="Content-Type: ")
+	$ctype = substr($ctype, 14);
+      else {
+      }
+      if (substr($xtype, 0, 13)=="X-Primitive: ")
+	$xtype = substr($xtype, 13);
+      else {
+      }
+
+      $arr[] = Array(
+	"content-type" =&gt; $ctype, "x-type" =&gt; $xtype, "body" =&gt; $body);
+    }
+  } else {
+      $arr[] = Array(
+	"content-type" =&gt; $ctype, "x-type" =&gt; "x-body", "body" =&gt; $content);
+  }
+
+  return build_result($arr, $flags);
+}
+
+function xdbc_bind_param(&amp;$array, $lname, $stype, $value, $ns = '')
+{
+  $array[(string)$lname] = array($stype, (string)$value, $ns);
+}
+
+$query  = $input = file_get_contents('php://stdin');
+$params = array();
+$server = $_ENV['ML_SERVER'];
+$user   = $_ENV['ML_USER'];
+$flags  = XDBC_XML;
+
+if ($server &amp;&amp; $user) {
+	echo xdbc_query($server, $query, $params, $user, $flags);
+}
+else {
+	$str = "&lt;p&gt;Missing Environment variables for:&lt;/p&gt;";
+	if (!$server) {
+		$str = $str . "&lt;p&gt;&lt;b&gt;ML_SERVER&lt;/b&gt;=host:port&lt;span style='padding-left: 2em; color: #aaa;'&gt;ex: ML_SERVER=localhost:8100&lt;/span&gt;&lt;/p&gt;";
+     }
+	if (!$user) {
+		$str = $str . "&lt;p&gt;&lt;b&gt;ML_USER&lt;/b&gt;=user:password&lt;span style='padding-left: 2em; color: #aaa;'&gt;ex: ML_USER=admin:admin&lt;/span&gt;&lt;/p&gt;";
+	}
+	echo $str;
+}
+
+?&gt;</string>
+	<key>input</key>
+	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
+	<key>name</key>
+	<string>Run</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>source.xquery</string>
+	<key>uuid</key>
+	<string>080DAA43-3AF6-4E9A-9B97-85F066027543</string>
+</dict>
+</plist>

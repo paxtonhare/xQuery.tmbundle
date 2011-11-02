@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>xquery version "1.0-ml";
+
+declare option xdmp:mapping "false";
+
+</string>
+	<key>name</key>
+	<string>main module</string>
+	<key>scope</key>
+	<string>source.xquery</string>
+	<key>tabTrigger</key>
+	<string>main</string>
+	<key>uuid</key>
+	<string>CB7FC908-D910-4B05-9D21-27331F606157</string>
+</dict>
+</plist>

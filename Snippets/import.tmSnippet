@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>import module namespace ${1:ns} = ${2:"http://namespace-uri"} at ${3:"/uri/of/xquery.xqy"};</string>
+	<key>name</key>
+	<string>import</string>
+	<key>scope</key>
+	<string>source.xquery</string>
+	<key>tabTrigger</key>
+	<string>imp</string>
+	<key>uuid</key>
+	<string>D62097F7-B60F-44C9-BCCC-CF9F3431464E</string>
+</dict>
+</plist>

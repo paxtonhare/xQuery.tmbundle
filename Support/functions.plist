@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+  <dict><key>display</key><string>cts:and-not-query</string><key>insert</key><string>(${1:\$positive-query as cts:query}, ${2:\$negative-query as cts:query})</string></dict>
+  <dict><key>display</key><string>cts:and-not-query-negative-query</string><key>insert</key><string>(${1:\$query as cts:and-not-query})</string></dict>
+  <dict><key>display</key><string>cts:and-not-query-positive-query</string><key>insert</key><string>(${1:\$query as cts:and-not-query})</string></dict>
+  <dict><key>display</key><string>cts:and-query</string><key>insert</key><string>(${1:\$queries as cts:query*}, ${2:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>cts:and-query-options</string><key>insert</key><string>(${1:\$query as cts:and-query})</string></dict>
+  <dict><key>display</key><string>cts:and-query-queries</string><key>insert</key><string>(${1:\$query as cts:and-query})</string></dict>
+  <dict><key>display</key><string>cts:arc-intersection</string><key>insert</key><string>(${1:\$p1 as cts:point}, ${2:\$p2 as cts:point}, ${3:\$q1 as cts:point}, ${4:\$q2 as cts:point}, ${5:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>cts:avg</string><key>insert</key><string>(${1:\$arg as xs:anyAtomicType*})</string></dict>
+  <dict><key>display</key><string>cts:bearing</string><key>insert</key><string>(${1:\$p1 as cts:point}, ${2:\$p2 as cts:point}, ${3:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>cts:bounding-boxes</string><key>insert</key><string>(${1:\$region as cts:region}, ${2:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>cts:box</string><key>insert</key><string>(${1:\$south as xs:float}, ${2:\$west as xs:float}, ${3:\$north as xs:float}, ${4:\$east as xs:float})</string></dict>
+  <dict><key>display</key><string>cts:box-east</string><key>insert</key><string>(${1:\$box as cts:box})</string></dict>
+  <dict><key>display</key><string>cts:box-intersects</string><key>insert</key><string>(${1:\$box as cts:box}, ${2:\$region as cts:region*}, ${3:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>cts:box-north</string><key>insert</key><string>(${1:\$box as cts:box})</string></dict>
+  <dict><key>display</key><string>cts:box-south</string><key>insert</key><string>(${1:\$box as cts:box})</string></dict>
+  <dict><key>display</key><string>cts:box-west</string><key>insert</key><string>(${1:\$box as cts:box})</string></dict>
+  <dict><key>display</key><string>cts:circle</string><key>insert</key><string>(${1:\$radius as xs:float}, ${2:\$center as cts:point})</string></dict>
+  <dict><key>display</key><string>cts:circle-center</string><key>insert</key><string>(${1:\$circle as cts:circle})</string></dict>
+  <dict><key>display</key><string>cts:circle-intersects</string><key>insert</key><string>(${1:\$circle as cts:circle}, ${2:\$region as cts:region*}, ${3:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>cts:circle-radius</string><key>insert</key><string>(${1:\$circle as cts:circle})</string></dict>
+  <dict><key>display</key><string>cts:classify</string><key>insert</key><string>(${1:\$data-nodes as node()*}, ${2:\$classifier as element(cts:classifier)}, ${3:\$options as element()?}, ${4:\$training-nodes as node()*})</string></dict>
+  <dict><key>display</key><string>cts:cluster</string><key>insert</key><string>(${1:\$nodes as node()*}, ${2:[\$options as element()?]})</string></dict>
+  <dict><key>display</key><string>cts:collection-match</string><key>insert</key><string>(${1:\$pattern as xs:string}, ${2:[\$options as xs:string*]}, ${3:[\$query as cts:query?]}, ${4:[\$quality-weight as xs:double?]}, ${5:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:collection-query</string><key>insert</key><string>(${1:\$uris as xs:string*})</string></dict>
+  <dict><key>display</key><string>cts:collection-query-uris</string><key>insert</key><string>(${1:\$query as cts:collection-query})</string></dict>
+  <dict><key>display</key><string>cts:collections</string><key>insert</key><string>(${1:[\$start as xs:string?]}, ${2:[\$options as xs:string*]}, ${3:[\$query as cts:query?]}, ${4:[\$quality-weight as xs:double?]}, ${5:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:complex-polygon</string><key>insert</key><string>(${1:\$outer as cts:polygon}, ${2:\$inner as cts:polygon*})</string></dict>
+  <dict><key>display</key><string>cts:complex-polygon-contains</string><key>insert</key><string>(${1:\$complex-polygon as cts:complex-polygon}, ${2:\$region as cts:region*}, ${3:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>cts:complex-polygon-inner</string><key>insert</key><string>(${1:\$complexPolygon as cts:complex-polygon})</string></dict>
+  <dict><key>display</key><string>cts:complex-polygon-intersects</string><key>insert</key><string>(${1:\$complex-polygon as cts:complex-polygon}, ${2:\$region as cts:region*}, ${3:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>cts:complex-polygon-outer</string><key>insert</key><string>(${1:\$complexPolygon as cts:complex-polygon})</string></dict>
+  <dict><key>display</key><string>cts:confidence</string><key>insert</key><string>(${1:[\$node as node()]})</string></dict>
+  <dict><key>display</key><string>cts:contains</string><key>insert</key><string>(${1:\$nodes as node()*}, ${2:\$query as cts:query})</string></dict>
+  <dict><key>display</key><string>cts:count</string><key>insert</key><string>(${1:\$arg as item()*}, ${2:[\$maximum as xs:double]})</string></dict>
+  <dict><key>display</key><string>cts:deregister</string><key>insert</key><string>(${1:\$id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>cts:destination</string><key>insert</key><string>(${1:\$p as cts:point}, ${2:\$bearing as xs:double}, ${3:\$distance as xs:double}, ${4:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>cts:directory-query</string><key>insert</key><string>(${1:\$uris as xs:string*}, ${2:[\$depth as xs:string?]})</string></dict>
+  <dict><key>display</key><string>cts:directory-query-depth</string><key>insert</key><string>(${1:\$query as cts:directory-query})</string></dict>
+  <dict><key>display</key><string>cts:directory-query-uris</string><key>insert</key><string>(${1:\$query as cts:directory-query})</string></dict>
+  <dict><key>display</key><string>cts:distance</string><key>insert</key><string>(${1:\$p1 as cts:point}, ${2:\$p2 as cts:point}, ${3:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>cts:distinctive-terms</string><key>insert</key><string>(${1:\$nodes as node()*}, ${2:[\$options as element()?]})</string></dict>
+  <dict><key>display</key><string>cts:document-fragment-query</string><key>insert</key><string>(${1:\$query as cts:query})</string></dict>
+  <dict><key>display</key><string>cts:document-fragment-query-query</string><key>insert</key><string>(${1:\$query as cts:document-fragment-query})</string></dict>
+  <dict><key>display</key><string>cts:document-query</string><key>insert</key><string>(${1:\$uris as xs:string*})</string></dict>
+  <dict><key>display</key><string>cts:document-query-uris</string><key>insert</key><string>(${1:\$query as cts:document-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-pair-geospatial-boxes</string><key>insert</key><string>(${1:\$parent-element-names as xs:QName*}, ${2:\$latitude-names as xs:QName*}, ${3:\$longitude-names as xs:QName*}, ${4:[\$latitude-bounds as xs:double*]}, ${5:[\$longitude-bounds as xs:double*]}, ${6:[\$options as xs:string*]}, ${7:[\$query as cts:query?]}, ${8:[\$quality-weight as xs:double?]}, ${9:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-pair-geospatial-query</string><key>insert</key><string>(${1:\$element-name as xs:QName*}, ${2:\$latitude-attribute-names as xs:QName*}, ${3:\$longitude-attribute-names as xs:QName*}, ${4:\$regions as cts:region*}, ${5:[\$options as xs:string*]}, ${6:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-pair-geospatial-query-element-name</string><key>insert</key><string>(${1:\$query as cts:element-attribute-pair-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-pair-geospatial-query-latitude-name</string><key>insert</key><string>(${1:\$query as cts:element-attribute-pair-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-pair-geospatial-query-longitude-name</string><key>insert</key><string>(${1:\$query as cts:element-attribute-pair-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-pair-geospatial-query-options</string><key>insert</key><string>(${1:\$query as cts:element-attribute-pair-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-pair-geospatial-query-region</string><key>insert</key><string>(${1:\$query as cts:element-attribute-pair-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-pair-geospatial-query-weight</string><key>insert</key><string>(${1:\$query as cts:element-attribute-pair-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-pair-geospatial-value-match</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:\$latitude-names as xs:QName*}, ${3:\$longitude-names as xs:QName*}, ${4:\$pattern as xs:anyAtomicType}, ${5:[\$options as xs:string*]}, ${6:[\$query as cts:query?]}, ${7:[\$quality-weight as xs:double?]}, ${8:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-pair-geospatial-values</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:\$latitude-names as xs:QName*}, ${3:\$longitude-names as xs:QName*}, ${4:[\$start as cts:point?]}, ${5:[\$options as xs:string*]}, ${6:[\$query as cts:query?]}, ${7:[\$quality-weight as xs:double?]}, ${8:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-range-query</string><key>insert</key><string>(${1:\$element-name as xs:QName*}, ${2:\$attribute-name as xs:QName*}, ${3:\$operator as xs:string}, ${4:\$value as xs:anyAtomicType*}, ${5:[\$options as xs:string*]}, ${6:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-range-query-attribute-name</string><key>insert</key><string>(${1:\$query as cts:element-attribute-range-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-range-query-element-name</string><key>insert</key><string>(${1:\$query as cts:element-attribute-range-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-range-query-operator</string><key>insert</key><string>(${1:\$query as cts:element-attribute-range-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-range-query-options</string><key>insert</key><string>(${1:\$query as cts:element-attribute-range-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-range-query-value</string><key>insert</key><string>(${1:\$query as cts:element-attribute-range-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-range-query-weight</string><key>insert</key><string>(${1:\$query as cts:element-attribute-range-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-value-co-occurrences</string><key>insert</key><string>(${1:\$element-name-1 as xs:QName}, ${2:\$attribute-name-1 as xs:QName?}, ${3:\$element-name-2 as xs:QName}, ${4:\$attribute-name-2 as xs:QName?}, ${5:[\$options as xs:string*]}, ${6:[\$query as cts:query?]}, ${7:[\$quality-weight as xs:double?]}, ${8:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-value-geospatial-co-occurrences</string><key>insert</key><string>(${1:\$element-name-1 as xs:QName}, ${2:\$attribute-name-1 as xs:QName?}, ${3:\$geo-element-name as xs:QName}, ${4:\$child-name-1 as xs:QName?}, ${5:\$child-name-2 as xs:QName?}, ${6:[\$options as xs:string*]}, ${7:[\$query as cts:query?]}, ${8:[\$quality-weight as xs:double?]}, ${9:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-value-match</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:\$attribute-names as xs:QName*}, ${3:\$pattern as xs:anyAtomicType}, ${4:[\$options as xs:string*]}, ${5:[\$query as cts:query?]}, ${6:[\$quality-weight as xs:double?]}, ${7:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-value-query</string><key>insert</key><string>(${1:\$element-name as xs:QName*}, ${2:\$attribute-name as xs:QName*}, ${3:\$text as xs:string*}, ${4:[\$options as xs:string*]}, ${5:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-value-query-attribute-name</string><key>insert</key><string>(${1:\$query as cts:element-attribute-value-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-value-query-element-name</string><key>insert</key><string>(${1:\$query as cts:element-attribute-value-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-value-query-options</string><key>insert</key><string>(${1:\$query as cts:element-attribute-value-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-value-query-text</string><key>insert</key><string>(${1:\$query as cts:element-attribute-value-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-value-query-weight</string><key>insert</key><string>(${1:\$query as cts:element-attribute-value-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-value-ranges</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:\$attribute-names as xs:QName*}, ${3:[\$bounds as xs:anyAtomicType*]}, ${4:[\$options as xs:string*]}, ${5:[\$query as cts:query?]}, ${6:[\$quality-weight as xs:double?]}, ${7:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-values</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:\$attribute-names as xs:QName*}, ${3:[\$start as xs:anyAtomicType?]}, ${4:[\$options as xs:string*]}, ${5:[\$query as cts:query?]}, ${6:[\$quality-weight as xs:double?]}, ${7:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-word-match</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:\$attribute-names as xs:QName*}, ${3:\$pattern as xs:string}, ${4:[\$options as xs:string*]}, ${5:[\$query as cts:query?]}, ${6:[\$quality-weight as xs:double?]}, ${7:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-word-query</string><key>insert</key><string>(${1:\$element-name as xs:QName*}, ${2:\$attribute-name as xs:QName*}, ${3:\$text as xs:string*}, ${4:[\$options as xs:string*]}, ${5:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-word-query-attribute-name</string><key>insert</key><string>(${1:\$query as cts:element-attribute-word-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-word-query-element-name</string><key>insert</key><string>(${1:\$query as cts:element-attribute-word-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-word-query-options</string><key>insert</key><string>(${1:\$query as cts:element-attribute-word-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-word-query-text</string><key>insert</key><string>(${1:\$query as cts:element-attribute-word-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-word-query-weight</string><key>insert</key><string>(${1:\$query as cts:element-attribute-word-query})</string></dict>
+  <dict><key>display</key><string>cts:element-attribute-words</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:\$attribute-names as xs:QName*}, ${3:[\$start as xs:string?]}, ${4:[\$options as xs:string*]}, ${5:[\$query as cts:query?]}, ${6:[\$quality-weight as xs:double?]}, ${7:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-child-geospatial-boxes</string><key>insert</key><string>(${1:\$parent-element-names as xs:QName*}, ${2:\$child-element-names as xs:QName*}, ${3:[\$latitude-bounds as xs:double*]}, ${4:[\$longitude-bounds as xs:double*]}, ${5:[\$options as xs:string*]}, ${6:[\$query as cts:query?]}, ${7:[\$quality-weight as xs:double?]}, ${8:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-child-geospatial-query</string><key>insert</key><string>(${1:\$parent-element-name as xs:QName*}, ${2:\$child-element-names as xs:QName*}, ${3:\$regions as cts:region*}, ${4:[\$options as xs:string*]}, ${5:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:element-child-geospatial-query-child-name</string><key>insert</key><string>(${1:\$query as cts:element-child-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-child-geospatial-query-element-name</string><key>insert</key><string>(${1:\$query as cts:element-child-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-child-geospatial-query-options</string><key>insert</key><string>(${1:\$query as cts:element-child-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-child-geospatial-query-region</string><key>insert</key><string>(${1:\$query as cts:element-child-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-child-geospatial-query-weight</string><key>insert</key><string>(${1:\$query as cts:element-child-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-child-geospatial-value-match</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:\$child-names as xs:QName*}, ${3:\$pattern as xs:anyAtomicType}, ${4:[\$options as xs:string*]}, ${5:[\$query as cts:query?]}, ${6:[\$quality-weight as xs:double?]}, ${7:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-child-geospatial-values</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:\$child-names as xs:QName*}, ${3:[\$start as cts:point?]}, ${4:[\$options as xs:string*]}, ${5:[\$query as cts:query?]}, ${6:[\$quality-weight as xs:double?]}, ${7:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-geospatial-boxes</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:[\$latitude-bounds as xs:double*]}, ${3:[\$longitude-bounds as xs:double*]}, ${4:[\$options as xs:string*]}, ${5:[\$query as cts:query?]}, ${6:[\$quality-weight as xs:double?]}, ${7:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-geospatial-query</string><key>insert</key><string>(${1:\$element-name as xs:QName*}, ${2:\$regions as cts:region*}, ${3:[\$options as xs:string*]}, ${4:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:element-geospatial-query-element-name</string><key>insert</key><string>(${1:\$query as cts:element-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-geospatial-query-options</string><key>insert</key><string>(${1:\$query as cts:element-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-geospatial-query-region</string><key>insert</key><string>(${1:\$query as cts:element-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-geospatial-query-weight</string><key>insert</key><string>(${1:\$query as cts:element-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-geospatial-value-match</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:\$pattern as xs:anyAtomicType}, ${3:[\$options as xs:string*]}, ${4:[\$query as cts:query?]}, ${5:[\$quality-weight as xs:double?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-geospatial-values</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:[\$start as cts:point?]}, ${3:[\$options as xs:string*]}, ${4:[\$query as cts:query?]}, ${5:[\$quality-weight as xs:double?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-pair-geospatial-boxes</string><key>insert</key><string>(${1:\$parent-element-names as xs:QName*}, ${2:\$latitude-names as xs:QName*}, ${3:\$longitude-names as xs:QName*}, ${4:[\$latitude-bounds as xs:double*]}, ${5:[\$longitude-bounds as xs:double*]}, ${6:[\$options as xs:string*]}, ${7:[\$query as cts:query?]}, ${8:[\$quality-weight as xs:double?]}, ${9:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-pair-geospatial-query</string><key>insert</key><string>(${1:\$element-name as xs:QName*}, ${2:\$latitude-element-names as xs:QName*}, ${3:\$longitude-element-names as xs:QName*}, ${4:\$regions as cts:region*}, ${5:[\$options as xs:string*]}, ${6:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:element-pair-geospatial-query-element-name</string><key>insert</key><string>(${1:\$query as cts:element-pair-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-pair-geospatial-query-latitude-name</string><key>insert</key><string>(${1:\$query as cts:element-pair-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-pair-geospatial-query-longitude-name</string><key>insert</key><string>(${1:\$query as cts:element-pair-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-pair-geospatial-query-options</string><key>insert</key><string>(${1:\$query as cts:element-pair-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-pair-geospatial-query-region</string><key>insert</key><string>(${1:\$query as cts:element-pair-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-pair-geospatial-query-weight</string><key>insert</key><string>(${1:\$query as cts:element-pair-geospatial-query})</string></dict>
+  <dict><key>display</key><string>cts:element-pair-geospatial-value-match</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:\$latitude-names as xs:QName*}, ${3:\$longitude-names as xs:QName*}, ${4:\$pattern as xs:anyAtomicType}, ${5:[\$options as xs:string*]}, ${6:[\$query as cts:query?]}, ${7:[\$quality-weight as xs:double?]}, ${8:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-pair-geospatial-values</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:\$latitude-names as xs:QName*}, ${3:\$longitude-names as xs:QName*}, ${4:[\$start as cts:point?]}, ${5:[\$options as xs:string*]}, ${6:[\$query as cts:query?]}, ${7:[\$quality-weight as xs:double?]}, ${8:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-query</string><key>insert</key><string>(${1:\$element-name as xs:QName*}, ${2:\$query as cts:query})</string></dict>
+  <dict><key>display</key><string>cts:element-query-element-name</string><key>insert</key><string>(${1:\$query as cts:element-query})</string></dict>
+  <dict><key>display</key><string>cts:element-query-query</string><key>insert</key><string>(${1:\$query as cts:element-query})</string></dict>
+  <dict><key>display</key><string>cts:element-range-query</string><key>insert</key><string>(${1:\$element-name as xs:QName*}, ${2:\$operator as xs:string}, ${3:\$value as xs:anyAtomicType*}, ${4:[\$options as xs:string*]}, ${5:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:element-range-query-element-name</string><key>insert</key><string>(${1:\$query as cts:element-range-query})</string></dict>
+  <dict><key>display</key><string>cts:element-range-query-operator</string><key>insert</key><string>(${1:\$query as cts:element-range-query})</string></dict>
+  <dict><key>display</key><string>cts:element-range-query-options</string><key>insert</key><string>(${1:\$query as cts:element-range-query})</string></dict>
+  <dict><key>display</key><string>cts:element-range-query-value</string><key>insert</key><string>(${1:\$query as cts:element-range-query})</string></dict>
+  <dict><key>display</key><string>cts:element-range-query-weight</string><key>insert</key><string>(${1:\$query as cts:element-range-query})</string></dict>
+  <dict><key>display</key><string>cts:element-value-co-occurrences</string><key>insert</key><string>(${1:\$element-name-1 as xs:QName}, ${2:\$element-name-2 as xs:QName}, ${3:[\$options as xs:string*]}, ${4:[\$query as cts:query?]}, ${5:[\$quality-weight as xs:double?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-value-geospatial-co-occurrences</string><key>insert</key><string>(${1:\$element-name-1 as xs:QName}, ${2:\$geo-element-name as xs:QName}, ${3:\$child-name-1 as xs:QName?}, ${4:\$child-name-2 as xs:QName?}, ${5:[\$options as xs:string*]}, ${6:[\$query as cts:query?]}, ${7:[\$quality-weight as xs:double?]}, ${8:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-value-match</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:\$pattern as xs:anyAtomicType}, ${3:[\$options as xs:string*]}, ${4:[\$query as cts:query?]}, ${5:[\$quality-weight as xs:double?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-value-query</string><key>insert</key><string>(${1:\$element-name as xs:QName*}, ${2:\$text as xs:string*}, ${3:[\$options as xs:string*]}, ${4:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:element-value-query-element-name</string><key>insert</key><string>(${1:\$query as cts:element-value-query})</string></dict>
+  <dict><key>display</key><string>cts:element-value-query-options</string><key>insert</key><string>(${1:\$query as cts:element-value-query})</string></dict>
+  <dict><key>display</key><string>cts:element-value-query-text</string><key>insert</key><string>(${1:\$query as cts:element-value-query})</string></dict>
+  <dict><key>display</key><string>cts:element-value-query-weight</string><key>insert</key><string>(${1:\$query as cts:element-value-query})</string></dict>
+  <dict><key>display</key><string>cts:element-value-ranges</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:[\$bounds as xs:anyAtomicType*]}, ${3:[\$options as xs:string*]}, ${4:[\$query as cts:query?]}, ${5:[\$quality-weight as xs:double?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-values</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:[\$start as xs:anyAtomicType?]}, ${3:[\$options as xs:string*]}, ${4:[\$query as cts:query?]}, ${5:[\$quality-weight as xs:double?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-word-match</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:\$pattern as xs:string}, ${3:[\$options as xs:string*]}, ${4:[\$query as cts:query?]}, ${5:[\$quality-weight as xs:double?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:element-word-query</string><key>insert</key><string>(${1:\$element-name as xs:QName*}, ${2:\$text as xs:string*}, ${3:[\$options as xs:string*]}, ${4:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:element-word-query-element-name</string><key>insert</key><string>(${1:\$query as cts:element-word-query})</string></dict>
+  <dict><key>display</key><string>cts:element-word-query-options</string><key>insert</key><string>(${1:\$query as cts:element-word-query})</string></dict>
+  <dict><key>display</key><string>cts:element-word-query-text</string><key>insert</key><string>(${1:\$query as cts:element-word-query})</string></dict>
+  <dict><key>display</key><string>cts:element-word-query-weight</string><key>insert</key><string>(${1:\$query as cts:element-word-query})</string></dict>
+  <dict><key>display</key><string>cts:element-words</string><key>insert</key><string>(${1:\$element-names as xs:QName*}, ${2:[\$start as xs:string?]}, ${3:[\$options as xs:string*]}, ${4:[\$query as cts:query?]}, ${5:[\$quality-weight as xs:double?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:entity-highlight</string><key>insert</key><string>(${1:\$node as node()}, ${2:\$expr as item()*})</string></dict>
+  <dict><key>display</key><string>cts:field-range-query</string><key>insert</key><string>(${1:\$field-name as xs:string*}, ${2:\$operator as xs:string}, ${3:\$value as xs:anyAtomicType*}, ${4:[\$options as xs:string*]}, ${5:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:field-range-query-field-name</string><key>insert</key><string>(${1:\$query as cts:field-range-query})</string></dict>
+  <dict><key>display</key><string>cts:field-range-query-operator</string><key>insert</key><string>(${1:\$query as cts:field-range-query})</string></dict>
+  <dict><key>display</key><string>cts:field-range-query-options</string><key>insert</key><string>(${1:\$query as cts:field-range-query})</string></dict>
+  <dict><key>display</key><string>cts:field-range-query-value</string><key>insert</key><string>(${1:\$query as cts:field-range-query})</string></dict>
+  <dict><key>display</key><string>cts:field-range-query-weight</string><key>insert</key><string>(${1:\$query as cts:field-range-query})</string></dict>
+  <dict><key>display</key><string>cts:field-value-co-occurrences</string><key>insert</key><string>(${1:\$field-name-1 as xs:string}, ${2:\$field-name-2 as xs:string}, ${3:[\$options as xs:string*]}, ${4:[\$query as cts:query?]}, ${5:[\$quality-weight as xs:double?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:field-value-match</string><key>insert</key><string>(${1:\$field-names as xs:string*}, ${2:\$pattern as xs:anyAtomicType}, ${3:[\$options as xs:string*]}, ${4:[\$query as cts:query?]}, ${5:[\$quality-weight as xs:double?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:field-value-query</string><key>insert</key><string>(${1:\$field-name as xs:string*}, ${2:\$text as xs:string*}, ${3:[\$options as xs:string*]}, ${4:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:field-value-query-field-name</string><key>insert</key><string>(${1:\$query as cts:field-value-query})</string></dict>
+  <dict><key>display</key><string>cts:field-value-query-options</string><key>insert</key><string>(${1:\$query as cts:field-value-query})</string></dict>
+  <dict><key>display</key><string>cts:field-value-query-text</string><key>insert</key><string>(${1:\$query as cts:field-value-query})</string></dict>
+  <dict><key>display</key><string>cts:field-value-query-weight</string><key>insert</key><string>(${1:\$query as cts:field-value-query})</string></dict>
+  <dict><key>display</key><string>cts:field-value-ranges</string><key>insert</key><string>(${1:\$field-names as xs:string*}, ${2:[\$bounds as xs:anyAtomicType*]}, ${3:[\$options as xs:string*]}, ${4:[\$query as cts:query?]}, ${5:[\$quality-weight as xs:double?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:field-values</string><key>insert</key><string>(${1:\$field-names as xs:string*}, ${2:[\$start as xs:anyAtomicType?]}, ${3:[\$options as xs:string*]}, ${4:[\$query as cts:query?]}, ${5:[\$quality-weight as xs:double?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:field-word-match</string><key>insert</key><string>(${1:\$field-names as xs:string*}, ${2:\$pattern as xs:string}, ${3:[\$options as xs:string*]}, ${4:[\$query as cts:query?]}, ${5:[\$quality-weight as xs:double?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:field-word-query</string><key>insert</key><string>(${1:\$field-name as xs:string*}, ${2:\$text as xs:string*}, ${3:[\$options as xs:string*]}, ${4:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:field-word-query-field-name</string><key>insert</key><string>(${1:\$query as cts:field-word-query})</string></dict>
+  <dict><key>display</key><string>cts:field-word-query-options</string><key>insert</key><string>(${1:\$query as cts:field-word-query})</string></dict>
+  <dict><key>display</key><string>cts:field-word-query-text</string><key>insert</key><string>(${1:\$query as cts:field-word-query})</string></dict>
+  <dict><key>display</key><string>cts:field-word-query-weight</string><key>insert</key><string>(${1:\$query as cts:field-word-query})</string></dict>
+  <dict><key>display</key><string>cts:field-words</string><key>insert</key><string>(${1:\$field-names as xs:string*}, ${2:[\$start as xs:string?]}, ${3:[\$options as xs:string*]}, ${4:[\$query as cts:query?]}, ${5:[\$quality-weight as xs:double?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:fitness</string><key>insert</key><string>(${1:[\$node as node()]})</string></dict>
+  <dict><key>display</key><string>cts:frequency</string><key>insert</key><string>(${1:\$value as item()})</string></dict>
+  <dict><key>display</key><string>cts:geospatial-co-occurrences</string><key>insert</key><string>(${1:\$geo-element-name-1 as xs:QName}, ${2:\$child-1-name-1 as xs:QName?}, ${3:\$child-1-name-2 as xs:QName?}, ${4:\$geo-element-name-2 as xs:QName}, ${5:\$child-2-name-1 as xs:QName?}, ${6:\$child-2-name-2 as xs:QName?}, ${7:[\$options as xs:string*]}, ${8:[\$query as cts:query?]}, ${9:[\$quality-weight as xs:double?]}, ${10:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:highlight</string><key>insert</key><string>(${1:\$node as node()}, ${2:\$query as cts:query}, ${3:\$expr as item()*})</string></dict>
+  <dict><key>display</key><string>cts:linestring</string><key>insert</key><string>(${1:\$vertices as cts:point*})</string></dict>
+  <dict><key>display</key><string>cts:linestring-vertices</string><key>insert</key><string>(${1:\$linestring as cts:linestring})</string></dict>
+  <dict><key>display</key><string>cts:locks-query</string><key>insert</key><string>(${1:\$query as cts:query})</string></dict>
+  <dict><key>display</key><string>cts:locks-query-query</string><key>insert</key><string>(${1:\$query as cts:locks-query})</string></dict>
+  <dict><key>display</key><string>cts:near-query</string><key>insert</key><string>(${1:\$queries as cts:query*}, ${2:[\$distance as xs:double?]}, ${3:[\$options as xs:string*]}, ${4:[\$distance-weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:near-query-distance</string><key>insert</key><string>(${1:\$query as cts:near-query})</string></dict>
+  <dict><key>display</key><string>cts:near-query-options</string><key>insert</key><string>(${1:\$query as cts:near-query})</string></dict>
+  <dict><key>display</key><string>cts:near-query-queries</string><key>insert</key><string>(${1:\$query as cts:near-query})</string></dict>
+  <dict><key>display</key><string>cts:near-query-weight</string><key>insert</key><string>(${1:\$query as cts:near-query})</string></dict>
+  <dict><key>display</key><string>cts:not-query</string><key>insert</key><string>(${1:\$query as cts:query})</string></dict>
+  <dict><key>display</key><string>cts:not-query-query</string><key>insert</key><string>(${1:\$query as cts:not-query})</string></dict>
+  <dict><key>display</key><string>cts:not-query-weight</string><key>insert</key><string>(${1:\$query as cts:element-query})</string></dict>
+  <dict><key>display</key><string>cts:or-query</string><key>insert</key><string>(${1:\$queries as cts:query*})</string></dict>
+  <dict><key>display</key><string>cts:or-query-queries</string><key>insert</key><string>(${1:\$query as cts:or-query})</string></dict>
+  <dict><key>display</key><string>cts:parse-wkt</string><key>insert</key><string>(${1:\$wtk as xs:string*})</string></dict>
+  <dict><key>display</key><string>cts:point</string><key>insert</key><string>(${1:\$latitude as xs:float}, ${2:\$longitude as xs:float})</string></dict>
+  <dict><key>display</key><string>cts:point-latitude</string><key>insert</key><string>(${1:\$point as cts:point})</string></dict>
+  <dict><key>display</key><string>cts:point-longitude</string><key>insert</key><string>(${1:\$point as cts:point})</string></dict>
+  <dict><key>display</key><string>cts:polygon</string><key>insert</key><string>(${1:\$vertices as cts:point*})</string></dict>
+  <dict><key>display</key><string>cts:polygon-contains</string><key>insert</key><string>(${1:\$polygon as cts:polygon}, ${2:\$region as cts:region*}, ${3:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>cts:polygon-intersects</string><key>insert</key><string>(${1:\$polygon as cts:polygon}, ${2:\$region as cts:region*}, ${3:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>cts:polygon-vertices</string><key>insert</key><string>(${1:\$polygon as cts:polygon})</string></dict>
+  <dict><key>display</key><string>cts:properties-query</string><key>insert</key><string>(${1:\$query as cts:query})</string></dict>
+  <dict><key>display</key><string>cts:properties-query-query</string><key>insert</key><string>(${1:\$query as cts:properties-query})</string></dict>
+  <dict><key>display</key><string>cts:quality</string><key>insert</key><string>(${1:[\$node as node()]})</string></dict>
+  <dict><key>display</key><string>cts:query</string><key>insert</key><string>(${1:[\$query as element()]})</string></dict>
+  <dict><key>display</key><string>cts:register</string><key>insert</key><string>(${1:\$query as cts:query})</string></dict>
+  <dict><key>display</key><string>cts:registered-query</string><key>insert</key><string>(${1:\$ids as xs:unsignedLong*}, ${2:[\$options as xs:string*]}, ${3:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:registered-query-ids</string><key>insert</key><string>(${1:\$query as cts:registered-query})</string></dict>
+  <dict><key>display</key><string>cts:registered-query-options</string><key>insert</key><string>(${1:\$query as cts:registered-query})</string></dict>
+  <dict><key>display</key><string>cts:registered-query-weight</string><key>insert</key><string>(${1:\$query as cts:registered-query})</string></dict>
+  <dict><key>display</key><string>cts:remainder</string><key>insert</key><string>(${1:[\$node as node()]})</string></dict>
+  <dict><key>display</key><string>cts:reverse-query</string><key>insert</key><string>(${1:\$nodes as node()*}, ${2:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:reverse-query-nodes</string><key>insert</key><string>(${1:\$query as cts:reverse-query})</string></dict>
+  <dict><key>display</key><string>cts:reverse-query-weight</string><key>insert</key><string>(${1:\$query as cts:reverse-query})</string></dict>
+  <dict><key>display</key><string>cts:score</string><key>insert</key><string>(${1:[\$node as node()]})</string></dict>
+  <dict><key>display</key><string>cts:search</string><key>insert</key><string>(${1:\$expression as node()*}, ${2:\$query as cts:query?}, ${3:[\$options as xs:string*]}, ${4:[\$quality-weight as xs:double?]}, ${5:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:shortest-distance</string><key>insert</key><string>(${1:\$p1 as cts:point}, ${2:\$v as cts:point+}, ${3:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>cts:similar-query</string><key>insert</key><string>(${1:\$nodes as node()*}, ${2:[\$weight as xs:double?]}, ${3:[\$options as element()?]})</string></dict>
+  <dict><key>display</key><string>cts:similar-query-nodes</string><key>insert</key><string>(${1:\$query as cts:similar-query})</string></dict>
+  <dict><key>display</key><string>cts:similar-query-weight</string><key>insert</key><string>(${1:\$query as cts:similar-query})</string></dict>
+  <dict><key>display</key><string>cts:stem</string><key>insert</key><string>(${1:\$text as xs:string}, ${2:[\$language as xs:string?]})</string></dict>
+  <dict><key>display</key><string>cts:sum</string><key>insert</key><string>(${1:\$arg as xs:anyAtomicType*}, ${2:[\$zero as xs:anyAtomicType?]})</string></dict>
+  <dict><key>display</key><string>cts:thresholds</string><key>insert</key><string>(${1:\$computed-labels as element(cts:label)*}, ${2:\$known-labels as element(cts:label)*}, ${3:[\$recall-weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:to-wkt</string><key>insert</key><string>(${1:\$wtk as cts:region*})</string></dict>
+  <dict><key>display</key><string>cts:tokenize</string><key>insert</key><string>(${1:\$text as xs:string}, ${2:[\$language as xs:string?]})</string></dict>
+  <dict><key>display</key><string>cts:train</string><key>insert</key><string>(${1:\$training-nodes as node()*}, ${2:\$labels as element(cts:label)*}, ${3:[\$options as element()?]})</string></dict>
+  <dict><key>display</key><string>cts:uri-match</string><key>insert</key><string>(${1:\$pattern as xs:string}, ${2:[\$options as xs:string*]}, ${3:[\$query as cts:query?]}, ${4:[\$quality-weight as xs:double?]}, ${5:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:uris</string><key>insert</key><string>(${1:[\$start as xs:string?]}, ${2:[\$options as xs:string*]}, ${3:[\$query as cts:query?]}, ${4:[\$quality-weight as xs:double?]}, ${5:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:walk</string><key>insert</key><string>(${1:\$node as node()}, ${2:\$query as cts:query}, ${3:\$expr as item()*})</string></dict>
+  <dict><key>display</key><string>cts:word-match</string><key>insert</key><string>(${1:\$pattern as xs:string}, ${2:[\$options as xs:string*]}, ${3:[\$query as cts:query?]}, ${4:[\$quality-weight as xs:double?]}, ${5:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>cts:word-query</string><key>insert</key><string>(${1:\$text as xs:string*}, ${2:[\$options as xs:string*]}, ${3:[\$weight as xs:double?]})</string></dict>
+  <dict><key>display</key><string>cts:word-query-options</string><key>insert</key><string>(${1:\$query as cts:word-query})</string></dict>
+  <dict><key>display</key><string>cts:word-query-text</string><key>insert</key><string>(${1:\$query as cts:word-query})</string></dict>
+  <dict><key>display</key><string>cts:word-query-weight</string><key>insert</key><string>(${1:\$query as cts:word-query})</string></dict>
+  <dict><key>display</key><string>cts:words</string><key>insert</key><string>(${1:[\$start as xs:string?]}, ${2:[\$options as xs:string*]}, ${3:[\$query as cts:query?]}, ${4:[\$quality-weight as xs:double?]}, ${5:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>dbg:attach</string><key>insert</key><string>(${1:\$request-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>dbg:attached</string><key>insert</key><string>(${1:[\$server as xs:unsignedLong]})</string></dict>
+  <dict><key>display</key><string>dbg:break</string><key>insert</key><string>(${1:\$request as xs:unsignedLong}, ${2:[\$expression as xs:unsignedLong]})</string></dict>
+  <dict><key>display</key><string>dbg:breakpoints</string><key>insert</key><string>(${1:\$request as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>dbg:clear</string><key>insert</key><string>(${1:\$request as xs:unsignedLong}, ${2:\$expression as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>dbg:connect</string><key>insert</key><string>(${1:\$server as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>dbg:connected</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>dbg:continue</string><key>insert</key><string>(${1:\$request as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>dbg:detach</string><key>insert</key><string>(${1:\$request-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>dbg:disconnect</string><key>insert</key><string>(${1:\$server as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>dbg:eval</string><key>insert</key><string>(${1:\$xquery as xs:string}, ${2:[\$vars as item()*]}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>dbg:expr</string><key>insert</key><string>(${1:\$request as xs:unsignedLong}, ${2:\$expression as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>dbg:finish</string><key>insert</key><string>(${1:\$request as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>dbg:function</string><key>insert</key><string>(${1:\$request as xs:unsignedLong}, ${2:\$uri as xs:string}, ${3:\$function as xs:QName})</string></dict>
+  <dict><key>display</key><string>dbg:invoke</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:[\$vars as item()*]}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>dbg:line</string><key>insert</key><string>(${1:\$request as xs:unsignedLong}, ${2:\$uri as xs:string}, ${3:\$line as xs:unsigned})</string></dict>
+  <dict><key>display</key><string>dbg:next</string><key>insert</key><string>(${1:\$request as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>dbg:out</string><key>insert</key><string>(${1:\$request as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>dbg:stack</string><key>insert</key><string>(${1:\$request as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>dbg:status</string><key>insert</key><string>(${1:\$request-id as xs:unsignedLong*})</string></dict>
+  <dict><key>display</key><string>dbg:step</string><key>insert</key><string>(${1:\$request as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>dbg:stop</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>dbg:stopped</string><key>insert</key><string>(${1:[\$server as xs:unsignedLong]})</string></dict>
+  <dict><key>display</key><string>dbg:value</string><key>insert</key><string>(${1:\$request as xs:unsignedLong}, ${2:[\$expr as xs:string]})</string></dict>
+  <dict><key>display</key><string>dbg:wait</string><key>insert</key><string>(${1:\$request-id as xs:unsignedLong*}, ${2:\$timeout as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>exsl:node-set</string><key>insert</key><string>(${1:\$value as xs:anyAtomicType*})</string></dict>
+  <dict><key>display</key><string>exsl:object-type</string><key>insert</key><string>(${1:\$value as atomic type})</string></dict>
+  <dict><key>display</key><string>fn:abs</string><key>insert</key><string>(${1:\$arg as numeric?})</string></dict>
+  <dict><key>display</key><string>fn:adjust-date-to-timezone</string><key>insert</key><string>(${1:\$arg as xs:date?}, ${2:[\$timezone as xs:dayTimeDuration?]})</string></dict>
+  <dict><key>display</key><string>fn:adjust-dateTime-to-timezone</string><key>insert</key><string>(${1:\$arg as xs:dateTime?}, ${2:[\$timezone as xs:dayTimeDuration?]})</string></dict>
+  <dict><key>display</key><string>fn:adjust-time-to-timezone</string><key>insert</key><string>(${1:\$arg as xs:date?}, ${2:[\$timezone as xs:dayTimeDuration?]})</string></dict>
+  <dict><key>display</key><string>fn:analyze-string</string><key>insert</key><string>(${1:\$in as xs:string?}, ${2:\$regex as xs:string}, ${3:[\$flags as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:avg</string><key>insert</key><string>(${1:\$arg as xs:anyAtomicType*})</string></dict>
+  <dict><key>display</key><string>fn:base-uri</string><key>insert</key><string>(${1:[\$arg as node()?]})</string></dict>
+  <dict><key>display</key><string>fn:boolean</string><key>insert</key><string>(${1:\$arg as item()*})</string></dict>
+  <dict><key>display</key><string>fn:ceiling</string><key>insert</key><string>(${1:\$arg as numeric?})</string></dict>
+  <dict><key>display</key><string>fn:codepoint-equal</string><key>insert</key><string>(${1:\$comparand1 as xs:string?}, ${2:\$comparand2 as xs:string?})</string></dict>
+  <dict><key>display</key><string>fn:codepoints-to-string</string><key>insert</key><string>(${1:\$arg as xs:integer*})</string></dict>
+  <dict><key>display</key><string>fn:collection</string><key>insert</key><string>(${1:[\$uri as xs:string*]})</string></dict>
+  <dict><key>display</key><string>fn:compare</string><key>insert</key><string>(${1:\$comparand1 as xs:string?}, ${2:\$comparand2 as xs:string?}, ${3:[\$collation as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:concat</string><key>insert</key><string>(${1:\$parameter1 as xs:anyAtomicType?}, ${2:[\$parameterN as xs:anyAtomicType?,...]})</string></dict>
+  <dict><key>display</key><string>fn:contains</string><key>insert</key><string>(${1:\$parameter1 as xs:string?}, ${2:\$parameter2 as xs:string?}, ${3:[\$collation as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:count</string><key>insert</key><string>(${1:\$arg as item()*}, ${2:[\$maximum as xs:double?]})</string></dict>
+  <dict><key>display</key><string>fn:current</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>fn:current-date</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>fn:current-dateTime</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>fn:current-group</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>fn:current-grouping-key</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>fn:current-time</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>fn:data</string><key>insert</key><string>(${1:\$arg as item()*})</string></dict>
+  <dict><key>display</key><string>fn:day-from-date</string><key>insert</key><string>(${1:\$arg as xs:dateTime?})</string></dict>
+  <dict><key>display</key><string>fn:day-from-dateTime</string><key>insert</key><string>(${1:\$arg as xs:dateTime?})</string></dict>
+  <dict><key>display</key><string>fn:days-from-duration</string><key>insert</key><string>(${1:\$arg as xs:duration?})</string></dict>
+  <dict><key>display</key><string>fn:deep-equal</string><key>insert</key><string>(${1:\$parameter1 as item()*}, ${2:\$parameter2 as item()*}, ${3:[\$collation as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:default-collation</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>fn:distinct-nodes</string><key>insert</key><string>(${1:\$nodes as node()*})</string></dict>
+  <dict><key>display</key><string>fn:distinct-values</string><key>insert</key><string>(${1:\$arg as xs:anyAtomicType*}, ${2:[\$collation as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:doc</string><key>insert</key><string>(${1:[\$uri as xs:string*]})</string></dict>
+  <dict><key>display</key><string>fn:doc-available</string><key>insert</key><string>(${1:\$uri as xs:string?})</string></dict>
+  <dict><key>display</key><string>fn:document</string><key>insert</key><string>(${1:\$uris as item()*}, ${2:[\$base-node as node()]})</string></dict>
+  <dict><key>display</key><string>fn:document-uri</string><key>insert</key><string>(${1:\$arg as node()?})</string></dict>
+  <dict><key>display</key><string>fn:element-available</string><key>insert</key><string>(${1:\$element-name as xs:string})</string></dict>
+  <dict><key>display</key><string>fn:empty</string><key>insert</key><string>(${1:\$arg as item()*})</string></dict>
+  <dict><key>display</key><string>fn:encode-for-uri</string><key>insert</key><string>(${1:\$uri-part as xs:string})</string></dict>
+  <dict><key>display</key><string>fn:ends-with</string><key>insert</key><string>(${1:\$parameter1 as xs:string?}, ${2:\$parameter2 as xs:string?}, ${3:[\$collation as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:error</string><key>insert</key><string>(${1:[\$error as xs:QName?]}, ${2:[\$description as xs:string]}, ${3:[\$data as item()*]})</string></dict>
+  <dict><key>display</key><string>fn:escape-html-uri</string><key>insert</key><string>(${1:\$uri-part as xs:string})</string></dict>
+  <dict><key>display</key><string>fn:escape-uri</string><key>insert</key><string>(${1:\$uri-part as xs:string}, ${2:\$escape-reserved as xs:boolean})</string></dict>
+  <dict><key>display</key><string>fn:exactly-one</string><key>insert</key><string>(${1:\$arg as item()*})</string></dict>
+  <dict><key>display</key><string>fn:exists</string><key>insert</key><string>(${1:\$arg as item()*})</string></dict>
+  <dict><key>display</key><string>fn:expanded-QName</string><key>insert</key><string>(${1:\$paramURI as xs:string?}, ${2:\$paramLocal as xs:string})</string></dict>
+  <dict><key>display</key><string>fn:false</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>fn:floor</string><key>insert</key><string>(${1:\$arg as numeric?})</string></dict>
+  <dict><key>display</key><string>fn:format-date</string><key>insert</key><string>(${1:\$value as xs:date}, ${2:\$picture as xs:string}, ${3:[\$language as xs:string]}, ${4:[\$calendar as xs:string]}, ${5:[\$country as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:format-dateTime</string><key>insert</key><string>(${1:\$value as xs:dateTime}, ${2:\$picture as xs:string}, ${3:[\$language as xs:string]}, ${4:[\$calendar as xs:string]}, ${5:[\$country as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:format-number</string><key>insert</key><string>(${1:\$value as numeric}, ${2:\$picture as xs:string}, ${3:[\$decimal-format-name as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:format-time</string><key>insert</key><string>(${1:\$value as time}, ${2:\$picture as xs:string}, ${3:[\$language as xs:string]}, ${4:[\$calendar as xs:string]}, ${5:[\$country as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:function-available</string><key>insert</key><string>(${1:\$function-name as xs:string}, ${2:[\$arity as xs:integer]})</string></dict>
+  <dict><key>display</key><string>fn:generate-id</string><key>insert</key><string>(${1:[\$node as node()?]})</string></dict>
+  <dict><key>display</key><string>fn:hours-from-dateTime</string><key>insert</key><string>(${1:\$arg as xs:dateTime?})</string></dict>
+  <dict><key>display</key><string>fn:hours-from-duration</string><key>insert</key><string>(${1:\$arg as xs:duration?})</string></dict>
+  <dict><key>display</key><string>fn:hours-from-time</string><key>insert</key><string>(${1:\$arg as xs:time?})</string></dict>
+  <dict><key>display</key><string>fn:id</string><key>insert</key><string>(${1:\$arg as xs:string*}, ${2:[\$node as node()]})</string></dict>
+  <dict><key>display</key><string>fn:idref</string><key>insert</key><string>(${1:\$arg as xs:string*}, ${2:[\$node as node()]})</string></dict>
+  <dict><key>display</key><string>fn:implicit-timezone</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>fn:in-scope-prefixes</string><key>insert</key><string>(${1:\$element as element()})</string></dict>
+  <dict><key>display</key><string>fn:index-of</string><key>insert</key><string>(${1:\$seqParam as xs:anyAtomicType*}, ${2:\$srchParam as xs:anyAtomicType}, ${3:\$collationLiteral as xs:string})</string></dict>
+  <dict><key>display</key><string>fn:insert-before</string><key>insert</key><string>(${1:\$target as item()*}, ${2:\$position as xs:integer}, ${3:\$inserts as item()*})</string></dict>
+  <dict><key>display</key><string>fn:iri-to-uri</string><key>insert</key><string>(${1:\$uri-part as xs:string})</string></dict>
+  <dict><key>display</key><string>fn:key</string><key>insert</key><string>(${1:\$key-name as xs:string}, ${2:\$key-value as xs:string}, ${3:[\$top as node()]})</string></dict>
+  <dict><key>display</key><string>fn:lang</string><key>insert</key><string>(${1:\$testlang as xs:string?}, ${2:[\$node as node()]})</string></dict>
+  <dict><key>display</key><string>fn:last</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>fn:local-name</string><key>insert</key><string>(${1:[\$arg as node()?]})</string></dict>
+  <dict><key>display</key><string>fn:local-name-from-QName</string><key>insert</key><string>(${1:\$arg as xs:QName?})</string></dict>
+  <dict><key>display</key><string>fn:lower-case</string><key>insert</key><string>(${1:\$string as xs:string?})</string></dict>
+  <dict><key>display</key><string>fn:matches</string><key>insert</key><string>(${1:\$input as xs:string?}, ${2:\$pattern as xs:string}, ${3:[\$flags as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:max</string><key>insert</key><string>(${1:\$arg as xs:anyAtomicType*}, ${2:[\$collation as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:min</string><key>insert</key><string>(${1:\$arg as xs:anyAtomicType*}, ${2:[\$collation as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:minutes-from-dateTime</string><key>insert</key><string>(${1:\$arg as xs:dateTime?})</string></dict>
+  <dict><key>display</key><string>fn:minutes-from-duration</string><key>insert</key><string>(${1:\$arg as xs:duration?})</string></dict>
+  <dict><key>display</key><string>fn:minutes-from-time</string><key>insert</key><string>(${1:\$arg as xs:time?})</string></dict>
+  <dict><key>display</key><string>fn:month-from-date</string><key>insert</key><string>(${1:\$arg as xs:dateTime?})</string></dict>
+  <dict><key>display</key><string>fn:month-from-dateTime</string><key>insert</key><string>(${1:\$arg as xs:dateTime?})</string></dict>
+  <dict><key>display</key><string>fn:months-from-duration</string><key>insert</key><string>(${1:\$arg as xs:duration?})</string></dict>
+  <dict><key>display</key><string>fn:name</string><key>insert</key><string>(${1:[\$arg as node()?]})</string></dict>
+  <dict><key>display</key><string>fn:namespace-uri</string><key>insert</key><string>(${1:[\$arg as node()?]})</string></dict>
+  <dict><key>display</key><string>fn:namespace-uri-for-prefix</string><key>insert</key><string>(${1:\$prefix as xs:string?}, ${2:\$element as element()})</string></dict>
+  <dict><key>display</key><string>fn:namespace-uri-from-QName</string><key>insert</key><string>(${1:\$arg as xs:QName?})</string></dict>
+  <dict><key>display</key><string>fn:nilled</string><key>insert</key><string>(${1:\$arg as node()?})</string></dict>
+  <dict><key>display</key><string>fn:node-kind</string><key>insert</key><string>(${1:\$node as node()?})</string></dict>
+  <dict><key>display</key><string>fn:node-name</string><key>insert</key><string>(${1:\$arg as node()?})</string></dict>
+  <dict><key>display</key><string>fn:normalize-space</string><key>insert</key><string>(${1:[\$input as xs:string?]})</string></dict>
+  <dict><key>display</key><string>fn:normalize-unicode</string><key>insert</key><string>(${1:\$arg as xs:string?}, ${2:[\$normalizationForm as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:not</string><key>insert</key><string>(${1:\$arg as item()*})</string></dict>
+  <dict><key>display</key><string>fn:number</string><key>insert</key><string>(${1:[\$arg as xs:anyAtomicType?]})</string></dict>
+  <dict><key>display</key><string>fn:one-or-more</string><key>insert</key><string>(${1:\$arg as item()*})</string></dict>
+  <dict><key>display</key><string>fn:position</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>fn:prefix-from-QName</string><key>insert</key><string>(${1:\$arg as xs:QName?})</string></dict>
+  <dict><key>display</key><string>fn:QName</string><key>insert</key><string>(${1:\$paramURI as xs:string?}, ${2:\$paramQName as xs:string})</string></dict>
+  <dict><key>display</key><string>fn:regex-group</string><key>insert</key><string>(${1:\$group-number as xs:integer})</string></dict>
+  <dict><key>display</key><string>fn:remove</string><key>insert</key><string>(${1:\$target as item()*}, ${2:\$position as xs:integer})</string></dict>
+  <dict><key>display</key><string>fn:replace</string><key>insert</key><string>(${1:\$input as xs:string?}, ${2:\$pattern as xs:string}, ${3:\$replacement as xs:string}, ${4:[\$flags as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:resolve-QName</string><key>insert</key><string>(${1:\$qname as xs:string?}, ${2:\$element as element()})</string></dict>
+  <dict><key>display</key><string>fn:resolve-uri</string><key>insert</key><string>(${1:\$relative as xs:string?}, ${2:[\$base as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:reverse</string><key>insert</key><string>(${1:\$target as item()*})</string></dict>
+  <dict><key>display</key><string>fn:root</string><key>insert</key><string>(${1:[\$arg as node()?]})</string></dict>
+  <dict><key>display</key><string>fn:round</string><key>insert</key><string>(${1:\$arg as numeric?})</string></dict>
+  <dict><key>display</key><string>fn:round-half-to-even</string><key>insert</key><string>(${1:\$arg as numeric?}, ${2:[\$precision as xs:integer]})</string></dict>
+  <dict><key>display</key><string>fn:seconds-from-dateTime</string><key>insert</key><string>(${1:\$arg as xs:dateTime?})</string></dict>
+  <dict><key>display</key><string>fn:seconds-from-duration</string><key>insert</key><string>(${1:\$arg as xs:duration?})</string></dict>
+  <dict><key>display</key><string>fn:seconds-from-time</string><key>insert</key><string>(${1:\$arg as xs:time?})</string></dict>
+  <dict><key>display</key><string>fn:starts-with</string><key>insert</key><string>(${1:\$parameter1 as xs:string?}, ${2:\$parameter2 as xs:string?}, ${3:[\$collation as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:static-base-uri</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>fn:string</string><key>insert</key><string>(${1:[\$arg as item()?]})</string></dict>
+  <dict><key>display</key><string>fn:string-join</string><key>insert</key><string>(${1:\$parameter1 as xs:string*}, ${2:\$parameter2 as xs:string})</string></dict>
+  <dict><key>display</key><string>fn:string-length</string><key>insert</key><string>(${1:[\$sourceString as xs:string?]})</string></dict>
+  <dict><key>display</key><string>fn:string-pad</string><key>insert</key><string>(${1:\$padString as xs:string?}, ${2:\$padCount as xs:integer})</string></dict>
+  <dict><key>display</key><string>fn:string-to-codepoints</string><key>insert</key><string>(${1:\$arg as xs:string})</string></dict>
+  <dict><key>display</key><string>fn:subsequence</string><key>insert</key><string>(${1:\$sourceSeq as item()*}, ${2:\$startingLoc as xs:double}, ${3:[\$length as xs:double]})</string></dict>
+  <dict><key>display</key><string>fn:substring</string><key>insert</key><string>(${1:\$sourceString as xs:string?}, ${2:\$startingLoc as xs:double}, ${3:[\$length as xs:double]})</string></dict>
+  <dict><key>display</key><string>fn:substring-after</string><key>insert</key><string>(${1:\$input as xs:string?}, ${2:\$after as xs:string?}, ${3:[\$collation as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:substring-before</string><key>insert</key><string>(${1:\$input as xs:string?}, ${2:\$before as xs:string?}, ${3:[\$collation as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:subtract-dateTimes-yielding-dayTimeDuration</string><key>insert</key><string>(${1:\$srcval1 as xs:dateTime}, ${2:\$srcval1 as xs:dateTime})</string></dict>
+  <dict><key>display</key><string>fn:subtract-dateTimes-yielding-yearMonthDuration</string><key>insert</key><string>(${1:\$srcval1 as xs:dateTime}, ${2:\$srcval1 as xs:dateTime})</string></dict>
+  <dict><key>display</key><string>fn:sum</string><key>insert</key><string>(${1:\$arg as xs:anyAtomicType*}, ${2:[\$zero as xs:anyAtomicType?]})</string></dict>
+  <dict><key>display</key><string>fn:system-property</string><key>insert</key><string>(${1:\$property-name as xs:string})</string></dict>
+  <dict><key>display</key><string>fn:timezone-from-date</string><key>insert</key><string>(${1:\$arg as xs:dateTime?})</string></dict>
+  <dict><key>display</key><string>fn:timezone-from-dateTime</string><key>insert</key><string>(${1:\$arg as xs:dateTime?})</string></dict>
+  <dict><key>display</key><string>fn:timezone-from-time</string><key>insert</key><string>(${1:\$arg as xs:time?})</string></dict>
+  <dict><key>display</key><string>fn:tokenize</string><key>insert</key><string>(${1:\$input as xs:string?}, ${2:\$pattern as xs:string}, ${3:[\$flags as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:trace</string><key>insert</key><string>(${1:\$value as item()*}, ${2:\$label as xs:string})</string></dict>
+  <dict><key>display</key><string>fn:translate</string><key>insert</key><string>(${1:\$src as xs:string?}, ${2:\$mapString as xs:string?}, ${3:\$transString as xs:string?})</string></dict>
+  <dict><key>display</key><string>fn:true</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>fn:type-available</string><key>insert</key><string>(${1:\$type-name as xs:string})</string></dict>
+  <dict><key>display</key><string>fn:unordered</string><key>insert</key><string>(${1:\$sourceSeq as item()*})</string></dict>
+  <dict><key>display</key><string>fn:unparsed-entity-public-id</string><key>insert</key><string>(${1:\$entity-name as xs:string})</string></dict>
+  <dict><key>display</key><string>fn:unparsed-entity-uri</string><key>insert</key><string>(${1:\$entity-name as xs:string})</string></dict>
+  <dict><key>display</key><string>fn:unparsed-text</string><key>insert</key><string>(${1:\$href as xs:string}, ${2:[\$encoding as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:unparsed-text-available</string><key>insert</key><string>(${1:\$href as xs:string}, ${2:[\$encoding as xs:string]})</string></dict>
+  <dict><key>display</key><string>fn:upper-case</string><key>insert</key><string>(${1:\$string as xs:string?})</string></dict>
+  <dict><key>display</key><string>fn:year-from-date</string><key>insert</key><string>(${1:\$arg as xs:dateTime?})</string></dict>
+  <dict><key>display</key><string>fn:year-from-dateTime</string><key>insert</key><string>(${1:\$arg as xs:dateTime?})</string></dict>
+  <dict><key>display</key><string>fn:years-from-duration</string><key>insert</key><string>(${1:\$arg as xs:duration?})</string></dict>
+  <dict><key>display</key><string>fn:zero-or-one</string><key>insert</key><string>(${1:\$arg as item()*})</string></dict>
+  <dict><key>display</key><string>map:clear</string><key>insert</key><string>(${1:\$map as map:map})</string></dict>
+  <dict><key>display</key><string>map:count</string><key>insert</key><string>(${1:\$map as map:map})</string></dict>
+  <dict><key>display</key><string>map:delete</string><key>insert</key><string>(${1:\$map as map:map}, ${2:\$key as xs:string})</string></dict>
+  <dict><key>display</key><string>map:get</string><key>insert</key><string>(${1:\$map as map:map}, ${2:\$key as xs:string})</string></dict>
+  <dict><key>display</key><string>map:keys</string><key>insert</key><string>(${1:\$map as map:map})</string></dict>
+  <dict><key>display</key><string>map:map</string><key>insert</key><string>(${1:[\$map as element(map:map)]})</string></dict>
+  <dict><key>display</key><string>map:put</string><key>insert</key><string>(${1:\$map as map:map}, ${2:\$key as xs:string}, ${3:\$value as item()*})</string></dict>
+  <dict><key>display</key><string>math:acos</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:asin</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:atan</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:atan2</string><key>insert</key><string>(${1:\$y as xs:double}, ${2:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:ceil</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:cos</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:cosh</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:exp</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:fabs</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:floor</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:fmod</string><key>insert</key><string>(${1:\$x as xs:double}, ${2:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:frexp</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:ldexp</string><key>insert</key><string>(${1:\$y as xs:double}, ${2:\$i as xs:integer})</string></dict>
+  <dict><key>display</key><string>math:log</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:log10</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:modf</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:pow</string><key>insert</key><string>(${1:\$x as xs:double}, ${2:\$y as xs:double})</string></dict>
+  <dict><key>display</key><string>math:sin</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:sinh</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:sqrt</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:tan</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>math:tanh</string><key>insert</key><string>(${1:\$x as xs:double})</string></dict>
+  <dict><key>display</key><string>prof:allowed</string><key>insert</key><string>(${1:\$request-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>prof:disable</string><key>insert</key><string>(${1:\$request-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>prof:enable</string><key>insert</key><string>(${1:\$request-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>prof:eval</string><key>insert</key><string>(${1:\$xquery as xs:string}, ${2:[\$vars as item()*]}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>prof:invoke</string><key>insert</key><string>(${1:\$path as xs:string}, ${2:[\$vars as item()*]}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>prof:report</string><key>insert</key><string>(${1:\$request-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>prof:reset</string><key>insert</key><string>(${1:\$request-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>prof:value</string><key>insert</key><string>(${1:\$expr as xs:string})</string></dict>
+  <dict><key>display</key><string>prof:xslt-eval</string><key>insert</key><string>(${1:\$stylesheet as element()}, ${2:\$input as node()?}, ${3:[\$params as map:map?]}, ${4:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>prof:xslt-invoke</string><key>insert</key><string>(${1:\$path as xs:string}, ${2:\$input as node()?}, ${3:[\$params as map:map?]}, ${4:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>spell:double-metaphone</string><key>insert</key><string>(${1:\$word as xs:string})</string></dict>
+  <dict><key>display</key><string>spell:is-correct</string><key>insert</key><string>(${1:\$uri as xs:string*}, ${2:\$word as xs:string})</string></dict>
+  <dict><key>display</key><string>spell:levenshtein-distance</string><key>insert</key><string>(${1:\$str1 as xs:string}, ${2:\$str2 as xs:string})</string></dict>
+  <dict><key>display</key><string>spell:suggest</string><key>insert</key><string>(${1:\$uri as xs:string*}, ${2:\$word as xs:string}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>spell:suggest-detailed</string><key>insert</key><string>(${1:\$uri as xs:string*}, ${2:\$word as xs:string}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:access</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$action as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:add-response-header</string><key>insert</key><string>(${1:\$name as xs:string}, ${2:\$value as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:add64</string><key>insert</key><string>(${1:\$x as xs:unsignedLong}, ${2:\$y as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:amp</string><key>insert</key><string>(${1:\$namespace as xs:string}, ${2:\$localname as xs:string}, ${3:\$module-uri as xs:string}, ${4:\$database as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:amp-roles</string><key>insert</key><string>(${1:\$namespace-uri as xs:string}, ${2:\$localname as xs:string}, ${3:\$document-uri as xs:string}, ${4:\$database-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:and64</string><key>insert</key><string>(${1:\$x as xs:unsignedLong}, ${2:\$y as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:apply</string><key>insert</key><string>(${1:\$function as xdmp:function}, ${2:[\$params-1-to-N as item()*]})</string></dict>
+  <dict><key>display</key><string>xdmp:architecture</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:base64-decode</string><key>insert</key><string>(${1:\$encoded as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:base64-encode</string><key>insert</key><string>(${1:\$plaintext as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:binary-decode</string><key>insert</key><string>(${1:\$encoded as node()}, ${2:\$encoding-name as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:binary-is-external</string><key>insert</key><string>(${1:\$source as binary()})</string></dict>
+  <dict><key>display</key><string>xdmp:binary-is-large</string><key>insert</key><string>(${1:\$source as binary()})</string></dict>
+  <dict><key>display</key><string>xdmp:binary-is-small</string><key>insert</key><string>(${1:\$source as binary()})</string></dict>
+  <dict><key>display</key><string>xdmp:binary-size</string><key>insert</key><string>(${1:[\$source as binary()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:cache-status</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:can-grant-roles</string><key>insert</key><string>(${1:\$roles as xs:string*})</string></dict>
+  <dict><key>display</key><string>xdmp:castable-as</string><key>insert</key><string>(${1:\$namespace-uri as xs:string}, ${2:\$local-name as xs:string}, ${3:\$item as item()})</string></dict>
+  <dict><key>display</key><string>xdmp:cluster</string><key>insert</key><string>(${1:[\$name as xs:string]})</string></dict>
+  <dict><key>display</key><string>xdmp:cluster-name</string><key>insert</key><string>(${1:[\$id as xs:unsignedLong]})</string></dict>
+  <dict><key>display</key><string>xdmp:collation-canonical-uri</string><key>insert</key><string>(${1:\$collation-uri as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:collection-delete</string><key>insert</key><string>(${1:\$uri as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:collection-locks</string><key>insert</key><string>(${1:[\$uri as xs:string*]})</string></dict>
+  <dict><key>display</key><string>xdmp:collection-properties</string><key>insert</key><string>(${1:[\$uri as xs:string*]})</string></dict>
+  <dict><key>display</key><string>xdmp:commit</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:configuration-timestamp</string><key>insert</key><string>(${1:[\$name as xs:string]})</string></dict>
+  <dict><key>display</key><string>xdmp:crypt</string><key>insert</key><string>(${1:\$password as xs:string}, ${2:\$salt as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:current-last</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:current-position</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:database</string><key>insert</key><string>(${1:[\$name as xs:string]})</string></dict>
+  <dict><key>display</key><string>xdmp:database-backup</string><key>insert</key><string>(${1:\$forestIDs as unsignedLong*}, ${2:\$pathname as xs:string}, ${3:[\$journal-archiving as xs:boolean?]}, ${4:[\$journal-archive-path as xs:string?]}, ${5:[\$lag-limit as xs:unsignedLong]})</string></dict>
+  <dict><key>display</key><string>xdmp:database-backup-cancel</string><key>insert</key><string>(${1:\$jobid as unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:database-backup-purge</string><key>insert</key><string>(${1:\$dir as xs:string}, ${2:\$keep-num-backups as xs:unsignedInt})</string></dict>
+  <dict><key>display</key><string>xdmp:database-backup-status</string><key>insert</key><string>(${1:\$jobid as unsignedLong}, ${2:[\$hostid as unsignedLong]})</string></dict>
+  <dict><key>display</key><string>xdmp:database-backup-validate</string><key>insert</key><string>(${1:\$forestIDs as unsignedLong*}, ${2:\$pathname as xs:string}, ${3:[\$include-replicas as xs:boolean?]}, ${4:[\$journal-archiving as xs:boolean?]}, ${5:[\$journal-archive-path as xs:string?]}, ${6:[\$lag-limit as xs:unsignedLong]})</string></dict>
+  <dict><key>display</key><string>xdmp:database-forests</string><key>insert</key><string>(${1:\$database as xs:unsignedLong}, ${2:[\$include-replicas as xs:boolean?]})</string></dict>
+  <dict><key>display</key><string>xdmp:database-name</string><key>insert</key><string>(${1:\$id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:database-restore</string><key>insert</key><string>(${1:\$forestIDs as unsignedLong*}, ${2:\$pathname as xs:string}, ${3:[\$restoreToTime as xs:dateTime?]}, ${4:[\$journal-archiving as xs:boolean?]}, ${5:[\$journal-archive-path as xs:string?]})</string></dict>
+  <dict><key>display</key><string>xdmp:database-restore-cancel</string><key>insert</key><string>(${1:\$jobid as unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:database-restore-status</string><key>insert</key><string>(${1:\$jobid as unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:database-restore-validate</string><key>insert</key><string>(${1:\$forestIDs as unsignedLong*}, ${2:\$pathname as xs:string}, ${3:[\$restoreToTime as xs:dateTime]}, ${4:[\$include-replicas as xs:boolean?]}, ${5:[\$journal-archiving as xs:boolean?]}, ${6:[\$journal-archive-path as xs:string?]})</string></dict>
+  <dict><key>display</key><string>xdmp:databases</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:default-collections</string><key>insert</key><string>(${1:[\$uri as xs:string]})</string></dict>
+  <dict><key>display</key><string>xdmp:default-permissions</string><key>insert</key><string>(${1:[\$uri as xs:string]})</string></dict>
+  <dict><key>display</key><string>xdmp:describe</string><key>insert</key><string>(${1:\$item as item()*}, ${2:[\$maxSequenceLength as xs:unsignedInt?]}, ${3:[\$maxItemLength as xs:unsignedInt*]})</string></dict>
+  <dict><key>display</key><string>xdmp:diacritic-less</string><key>insert</key><string>(${1:\$string as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:directory</string><key>insert</key><string>(${1:\$uri as xs:string*}, ${2:[\$depth as xs:string?]})</string></dict>
+  <dict><key>display</key><string>xdmp:directory-create</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:[\$permissions as element(sec:permission)*]}, ${3:[\$collections as xs:string*]}, ${4:[\$quality as xs:int?]}, ${5:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>xdmp:directory-delete</string><key>insert</key><string>(${1:\$uri as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:directory-locks</string><key>insert</key><string>(${1:\$uri as xs:string*}, ${2:[\$depth as xs:string?]})</string></dict>
+  <dict><key>display</key><string>xdmp:directory-properties</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:[\$depth as xs:string?]})</string></dict>
+  <dict><key>display</key><string>xdmp:document-add-collections</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$collections as xs:string*})</string></dict>
+  <dict><key>display</key><string>xdmp:document-add-permissions</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$permissions as element(sec:permission)*})</string></dict>
+  <dict><key>display</key><string>xdmp:document-add-properties</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$props as element()*})</string></dict>
+  <dict><key>display</key><string>xdmp:document-assign</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$forest-count as xs:positiveInteger})</string></dict>
+  <dict><key>display</key><string>xdmp:document-delete</string><key>insert</key><string>(${1:\$uri as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:document-filter</string><key>insert</key><string>(${1:\$doc as node()})</string></dict>
+  <dict><key>display</key><string>xdmp:document-forest</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>xdmp:document-get</string><key>insert</key><string>(${1:\$location as xs:string}, ${2:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:document-get-collections</string><key>insert</key><string>(${1:\$uri as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:document-get-permissions</string><key>insert</key><string>(${1:\$uri as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:document-get-properties</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$property as xs:QName})</string></dict>
+  <dict><key>display</key><string>xdmp:document-get-quality</string><key>insert</key><string>(${1:\$uri as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:document-insert</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$root as node()}, ${3:[\$permissions as element(sec:permission)*]}, ${4:[\$collections as xs:string*]}, ${5:[\$quality as xs:int?]}, ${6:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>xdmp:document-load</string><key>insert</key><string>(${1:\$location as xs:string}, ${2:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:document-locks</string><key>insert</key><string>(${1:[\$uri as xs:string*]})</string></dict>
+  <dict><key>display</key><string>xdmp:document-properties</string><key>insert</key><string>(${1:[\$uri as xs:string*]})</string></dict>
+  <dict><key>display</key><string>xdmp:document-remove-collections</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$collections as xs:string*})</string></dict>
+  <dict><key>display</key><string>xdmp:document-remove-permissions</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$permissions as element(sec:permission)*})</string></dict>
+  <dict><key>display</key><string>xdmp:document-remove-properties</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$property-names as xs:QName*})</string></dict>
+  <dict><key>display</key><string>xdmp:document-set-collections</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$collections as xs:string*})</string></dict>
+  <dict><key>display</key><string>xdmp:document-set-permissions</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$permissions as element(sec:permission)*})</string></dict>
+  <dict><key>display</key><string>xdmp:document-set-properties</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$props as element()*})</string></dict>
+  <dict><key>display</key><string>xdmp:document-set-property</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$prop as element()})</string></dict>
+  <dict><key>display</key><string>xdmp:document-set-quality</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$quality as xs:int})</string></dict>
+  <dict><key>display</key><string>xdmp:elapsed-time</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:element-content-type</string><key>insert</key><string>(${1:\$element as element()})</string></dict>
+  <dict><key>display</key><string>xdmp:email</string><key>insert</key><string>(${1:\$message as node()})</string></dict>
+  <dict><key>display</key><string>xdmp:encoding-language-detect</string><key>insert</key><string>(${1:\$document as node()})</string></dict>
+  <dict><key>display</key><string>xdmp:estimate</string><key>insert</key><string>(${1:\$expression as item()*}, ${2:[\$maximum as xs:double?]})</string></dict>
+  <dict><key>display</key><string>xdmp:eval</string><key>insert</key><string>(${1:\$xquery as xs:string}, ${2:[\$vars as item()*]}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:eval-in</string><key>insert</key><string>(${1:\$xquery as xs:string}, ${2:\$ID as xs:unsignedLong}, ${3:[\$vars as item()*]}, ${4:[\$modules as xs:unsignedLong?]}, ${5:[\$root as xs:string?]})</string></dict>
+  <dict><key>display</key><string>xdmp:excel-convert</string><key>insert</key><string>(${1:\$doc as node()}, ${2:\$filename as xs:string}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:exists</string><key>insert</key><string>(${1:\$expression as item()*})</string></dict>
+  <dict><key>display</key><string>xdmp:external-binary</string><key>insert</key><string>(${1:\$path as xs:string}, ${2:[\$starting-location as xs:double]}, ${3:[\$length as xs:double]})</string></dict>
+  <dict><key>display</key><string>xdmp:filesystem-directory</string><key>insert</key><string>(${1:\$pathname as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:filesystem-file</string><key>insert</key><string>(${1:\$pathname as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:filesystem-file-length</string><key>insert</key><string>(${1:\$pathname as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:foreign-cluster-status</string><key>insert</key><string>(${1:\$host-id as xs:unsignedLong}, ${2:\$foreign-cluster-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:foreign-clusters</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:forest</string><key>insert</key><string>(${1:\$name as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:forest-backup</string><key>insert</key><string>(${1:\$forestID as unsignedLong}, ${2:\$pathname as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:forest-clear</string><key>insert</key><string>(${1:\$forestIDs as unsignedLong*})</string></dict>
+  <dict><key>display</key><string>xdmp:forest-counts</string><key>insert</key><string>(${1:\$forest-id as xs:unsignedLong}, ${2:[\$show-elements as xs:string*]})</string></dict>
+  <dict><key>display</key><string>xdmp:forest-databases</string><key>insert</key><string>(${1:\$forest as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:forest-name</string><key>insert</key><string>(${1:\$id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:forest-restart</string><key>insert</key><string>(${1:\$forestIDs as unsignedLong*})</string></dict>
+  <dict><key>display</key><string>xdmp:forest-restore</string><key>insert</key><string>(${1:\$forestID as unsignedLong}, ${2:\$pathname as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:forest-rollback</string><key>insert</key><string>(${1:\$forestIDs as unsignedLong*}, ${2:\$timestamp as unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:forest-status</string><key>insert</key><string>(${1:\$forest-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:forests</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:format-number</string><key>insert</key><string>(${1:\$value as numeric}, ${2:\$picture as xs:string}, ${3:\$language as xs:string}, ${4:\$letter-value as xs:string}, ${5:\$ordchar as xs:string}, ${6:\$zero-padding as xs:string}, ${7:\$grouping-separator as xs:string}, ${8:\$grouping-size as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:from-json</string><key>insert</key><string>(${1:\$arg as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:function</string><key>insert</key><string>(${1:\$function as xs:QName}, ${2:[\$module-path as xs:string?]})</string></dict>
+  <dict><key>display</key><string>xdmp:function-module</string><key>insert</key><string>(${1:\$function as xdmp:function})</string></dict>
+  <dict><key>display</key><string>xdmp:function-name</string><key>insert</key><string>(${1:\$function as xdmp:function})</string></dict>
+  <dict><key>display</key><string>xdmp:get</string><key>insert</key><string>(${1:\$path as xs:string}, ${2:[\$default-namespace as xs:string?]}, ${3:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>xdmp:get-current-roles</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-current-user</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-original-url</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-orphaned-binaries</string><key>insert</key><string>(${1:\$id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-body</string><key>insert</key><string>(${1:[\$format as xs:string?]})</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-client-address</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-client-certificate</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-field</string><key>insert</key><string>(${1:\$name as xs:string}, ${2:[\$default as xs:string?]})</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-field-content-type</string><key>insert</key><string>(${1:\$field-name as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-field-filename</string><key>insert</key><string>(${1:\$field-name as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-field-names</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-header</string><key>insert</key><string>(${1:\$name as xs:string}, ${2:[\$default as xs:string?]})</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-header-names</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-method</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-path</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-protocol</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-url</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-user</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-request-username</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-response-code</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-response-encoding</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-server-field</string><key>insert</key><string>(${1:\$name as xs:string}, ${2:[\$default as item()*]})</string></dict>
+  <dict><key>display</key><string>xdmp:get-server-field-names</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-session-field</string><key>insert</key><string>(${1:\$name as xs:string}, ${2:[\$default as item()*]})</string></dict>
+  <dict><key>display</key><string>xdmp:get-session-field-names</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-transaction-mode</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:get-url-rewriter-path</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:group</string><key>insert</key><string>(${1:[\$name as xs:string]})</string></dict>
+  <dict><key>display</key><string>xdmp:group-hosts</string><key>insert</key><string>(${1:[\$name as xs:unsignedLong]})</string></dict>
+  <dict><key>display</key><string>xdmp:group-name</string><key>insert</key><string>(${1:[\$name as xs:unsignedLong]})</string></dict>
+  <dict><key>display</key><string>xdmp:group-servers</string><key>insert</key><string>(${1:[\$name as xs:unsignedLong]})</string></dict>
+  <dict><key>display</key><string>xdmp:groups</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:has-privilege</string><key>insert</key><string>(${1:\$privileges as xs:string*}, ${2:\$kind as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:hash32</string><key>insert</key><string>(${1:\$string as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:hash64</string><key>insert</key><string>(${1:\$string as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:hex-to-integer</string><key>insert</key><string>(${1:\$hex as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:hmac-md5</string><key>insert</key><string>(${1:\$secretkey as xs:string}, ${2:\$message as xs:string}, ${3:[\$base as xs:unsignedInt]})</string></dict>
+  <dict><key>display</key><string>xdmp:hmac-sha1</string><key>insert</key><string>(${1:\$secretkey as xs:string}, ${2:\$message as xs:string}, ${3:[\$base as xs:unsignedInt]})</string></dict>
+  <dict><key>display</key><string>xdmp:hmac-sha256</string><key>insert</key><string>(${1:\$secretkey as xs:string}, ${2:\$message as xs:string}, ${3:[\$base as xs:unsignedInt]})</string></dict>
+  <dict><key>display</key><string>xdmp:hmac-sha512</string><key>insert</key><string>(${1:\$secretkey as xs:string}, ${2:\$message as xs:string}, ${3:[\$base as xs:unsignedInt]})</string></dict>
+  <dict><key>display</key><string>xdmp:host</string><key>insert</key><string>(${1:[\$name as xs:string]})</string></dict>
+  <dict><key>display</key><string>xdmp:host-forests</string><key>insert</key><string>(${1:\$ID as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:host-name</string><key>insert</key><string>(${1:\$ID as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:host-status</string><key>insert</key><string>(${1:\$host-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:hosts</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:http-delete</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:http-get</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:http-head</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:http-options</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:http-post</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:[\$options as node()?]}, ${3:[\$data as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:http-put</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:[\$options as node()?]}, ${3:[\$data as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:integer-to-hex</string><key>insert</key><string>(${1:\$val as xs:integer})</string></dict>
+  <dict><key>display</key><string>xdmp:integer-to-octal</string><key>insert</key><string>(${1:\$val as xs:integer})</string></dict>
+  <dict><key>display</key><string>xdmp:invoke</string><key>insert</key><string>(${1:\$path as xs:string}, ${2:[\$vars as item()*]}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:invoke-in</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:\$ID as xs:unsignedLong}, ${3:[\$vars as item()*]}, ${4:[\$modules as xs:unsignedLong?]}, ${5:[\$root as xs:string?]})</string></dict>
+  <dict><key>display</key><string>xdmp:key-from-QName</string><key>insert</key><string>(${1:\$name as xs:QName})</string></dict>
+  <dict><key>display</key><string>xdmp:load</string><key>insert</key><string>(${1:\$path as xs:string}, ${2:[\$uri as xs:string?]}, ${3:[\$permissions as element(sec:permission)*]}, ${4:[\$collections as xs:string*]}, ${5:[\$quality as xs:int?]}, ${6:[\$default-namespace as xs:string?]}, ${7:[\$options as xs:string*]}, ${8:[\$forest-ids as xs:unsignedLong*]})</string></dict>
+  <dict><key>display</key><string>xdmp:lock-acquire</string><key>insert</key><string>(${1:\$uri as xs:string}, ${2:[\$scope as xs:string?]}, ${3:[\$depth as xs:string?]}, ${4:[\$owner as item()?]}, ${5:[\$timeout as xs:unsignedLong?]})</string></dict>
+  <dict><key>display</key><string>xdmp:lock-for-update</string><key>insert</key><string>(${1:\$uri as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:lock-release</string><key>insert</key><string>(${1:\$uri as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:log</string><key>insert</key><string>(${1:\$msg as item()*}, ${2:[\$level as xs:string?]})</string></dict>
+  <dict><key>display</key><string>xdmp:log-level</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:login</string><key>insert</key><string>(${1:\$name as xs:string}, ${2:[\$password as xs:string?]}, ${3:[\$set-session as xs:boolean?]})</string></dict>
+  <dict><key>display</key><string>xdmp:logout</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:lshift64</string><key>insert</key><string>(${1:\$x as xs:unsignedLong}, ${2:\$y as xs:integer})</string></dict>
+  <dict><key>display</key><string>xdmp:md5</string><key>insert</key><string>(${1:\$encoded as xs:string}, ${2:[\$base as xs:unsignedInt]})</string></dict>
+  <dict><key>display</key><string>xdmp:merge</string><key>insert</key><string>(${1:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:merge-cancel</string><key>insert</key><string>(${1:\$forest-ID as xs:unsignedLong}, ${2:\$merge-ID as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:merging</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:modules-database</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:modules-root</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:mul64</string><key>insert</key><string>(${1:\$x as xs:unsignedLong}, ${2:\$y as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:node-database</string><key>insert</key><string>(${1:\$node as node()})</string></dict>
+  <dict><key>display</key><string>xdmp:node-delete</string><key>insert</key><string>(${1:\$old as node()})</string></dict>
+  <dict><key>display</key><string>xdmp:node-insert-after</string><key>insert</key><string>(${1:\$sibling as node()}, ${2:\$new as node()})</string></dict>
+  <dict><key>display</key><string>xdmp:node-insert-before</string><key>insert</key><string>(${1:\$sibling as node()}, ${2:\$new as node()})</string></dict>
+  <dict><key>display</key><string>xdmp:node-insert-child</string><key>insert</key><string>(${1:\$parent as node()}, ${2:\$new as node()})</string></dict>
+  <dict><key>display</key><string>xdmp:node-kind</string><key>insert</key><string>(${1:\$node as node()?})</string></dict>
+  <dict><key>display</key><string>xdmp:node-replace</string><key>insert</key><string>(${1:\$old as node()}, ${2:\$new as node()})</string></dict>
+  <dict><key>display</key><string>xdmp:node-uri</string><key>insert</key><string>(${1:\$node as node()})</string></dict>
+  <dict><key>display</key><string>xdmp:not64</string><key>insert</key><string>(${1:\$x as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:octal-to-integer</string><key>insert</key><string>(${1:\$octal as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:or64</string><key>insert</key><string>(${1:\$x as xs:unsignedLong}, ${2:\$y as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:parse-dateTime</string><key>insert</key><string>(${1:\$picture as xs:string}, ${2:\$value as xs:string}, ${3:[\$language as xs:string]}, ${4:[\$calendar as xs:string]}, ${5:[\$country as xs:string]})</string></dict>
+  <dict><key>display</key><string>xdmp:parse-yymmdd</string><key>insert</key><string>(${1:\$picture as xs:string}, ${2:\$value as xs:string}, ${3:[\$language as xs:string]}, ${4:[\$calendar as xs:string]}, ${5:[\$country as xs:string]})</string></dict>
+  <dict><key>display</key><string>xdmp:path</string><key>insert</key><string>(${1:\$node as node()}, ${2:[\$include-document as xs:boolean?]})</string></dict>
+  <dict><key>display</key><string>xdmp:pdf-convert</string><key>insert</key><string>(${1:\$doc as node()}, ${2:\$filename as xs:string}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:permission</string><key>insert</key><string>(${1:\$role as xs:string}, ${2:\$capability as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:plan</string><key>insert</key><string>(${1:\$expression as item()*}, ${2:[\$maximum as xs:double?]})</string></dict>
+  <dict><key>display</key><string>xdmp:platform</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:powerpoint-convert</string><key>insert</key><string>(${1:\$doc as node()}, ${2:\$filename as xs:string}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:pretty-print</string><key>insert</key><string>(${1:\$xquery as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:privilege</string><key>insert</key><string>(${1:\$action as xs:string}, ${2:\$kind as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:privilege-roles</string><key>insert</key><string>(${1:\$action as xs:string}, ${2:\$kind as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:product-edition</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:QName-from-key</string><key>insert</key><string>(${1:\$key as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:query-meters</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:query-trace</string><key>insert</key><string>(${1:\$enabled as xs:boolean})</string></dict>
+  <dict><key>display</key><string>xdmp:quote</string><key>insert</key><string>(${1:\$arg as item()*}, ${2:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:random</string><key>insert</key><string>(${1:[\$max as xs:unsignedLong]})</string></dict>
+  <dict><key>display</key><string>xdmp:redirect-response</string><key>insert</key><string>(${1:\$name as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:remove-orphaned-binary</string><key>insert</key><string>(${1:\$forestID as xs:unsignedLong}, ${2:\$binaryID as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:request</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:request-cancel</string><key>insert</key><string>(${1:\$hostID as xs:unsignedLong}, ${2:\$serverID as xs:unsignedLong}, ${3:\$requestID as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:request-status</string><key>insert</key><string>(${1:\$host-id as xs:unsignedLong}, ${2:\$server-id as xs:unsignedLong}, ${3:\$request-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:request-timestamp</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:restart</string><key>insert</key><string>(${1:\$hostIDs as unsignedLong*}, ${2:\$reason as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:rethrow</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:role</string><key>insert</key><string>(${1:\$role as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:role-roles</string><key>insert</key><string>(${1:\$name as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:rollback</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:rshift64</string><key>insert</key><string>(${1:\$x as xs:unsignedLong}, ${2:\$y as xs:integer})</string></dict>
+  <dict><key>display</key><string>xdmp:save</string><key>insert</key><string>(${1:\$path as xs:string}, ${2:\$node as node()}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:schema-database</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:security-assert</string><key>insert</key><string>(${1:\$privileges as xs:string*}, ${2:\$kind as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:security-database</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:server</string><key>insert</key><string>(${1:[\$name as xs:string]})</string></dict>
+  <dict><key>display</key><string>xdmp:server-name</string><key>insert</key><string>(${1:\$id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:server-status</string><key>insert</key><string>(${1:\$host-id as xs:unsignedLong}, ${2:\$server-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:servers</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:set</string><key>insert</key><string>(${1:\$variable as item()*}, ${2:\$expr as item()*})</string></dict>
+  <dict><key>display</key><string>xdmp:set-request-time-limit</string><key>insert</key><string>(${1:\$time-limit as xs:unsignedInt}, ${2:[\$hostID as xs:unsignedLong?]}, ${3:[\$serverID as xs:unsignedLong?]}, ${4:[\$requestID as xs:unsignedLong?]})</string></dict>
+  <dict><key>display</key><string>xdmp:set-response-code</string><key>insert</key><string>(${1:\$code as xs:integer}, ${2:\$message as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:set-response-content-type</string><key>insert</key><string>(${1:\$name as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:set-response-encoding</string><key>insert</key><string>(${1:\$encoding as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:set-server-field</string><key>insert</key><string>(${1:\$name as xs:string}, ${2:\$value as item()*})</string></dict>
+  <dict><key>display</key><string>xdmp:set-server-field-privilege</string><key>insert</key><string>(${1:\$name as xs:string}, ${2:\$privilege as xs:string?})</string></dict>
+  <dict><key>display</key><string>xdmp:set-session-field</string><key>insert</key><string>(${1:\$name as xs:string}, ${2:\$value as item()*})</string></dict>
+  <dict><key>display</key><string>xdmp:set-transaction-mode</string><key>insert</key><string>(${1:\$value as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:set-transaction-name</string><key>insert</key><string>(${1:\$name as xs:string}, ${2:\$host-id as xs:unsignedLong}, ${3:\$txn-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:set-transaction-time-limit</string><key>insert</key><string>(${1:\$time-limit as xs:unsignedInt}, ${2:\$host-id as xs:unsignedLong}, ${3:\$txn-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:sha1</string><key>insert</key><string>(${1:\$encoded as xs:string}, ${2:[\$base as xs:unsignedInt]})</string></dict>
+  <dict><key>display</key><string>xdmp:sha256</string><key>insert</key><string>(${1:\$encoded as xs:string}, ${2:[\$base as xs:unsignedInt]})</string></dict>
+  <dict><key>display</key><string>xdmp:sha512</string><key>insert</key><string>(${1:\$encoded as xs:string}, ${2:[\$base as xs:unsignedInt]})</string></dict>
+  <dict><key>display</key><string>xdmp:shutdown</string><key>insert</key><string>(${1:\$hostIDs as unsignedLong*}, ${2:\$reason as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:sleep</string><key>insert</key><string>(${1:\$msec as xs:unsignedInt})</string></dict>
+  <dict><key>display</key><string>xdmp:spawn</string><key>insert</key><string>(${1:\$path as xs:string}, ${2:[\$vars as item()*]}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:spawn-in</string><key>insert</key><string>(${1:\$path as xs:string}, ${2:\$ID as xs:unsignedLong}, ${3:[\$vars as item()*]}, ${4:[\$modules as xs:unsignedLong?]}, ${5:[\$root as xs:string?]})</string></dict>
+  <dict><key>display</key><string>xdmp:start-journal-archiving</string><key>insert</key><string>(${1:\$forestIDs as unsignedInt*}, ${2:\$journal-archive-path as xs:string}, ${3:[\$lag-limit as xs:unsignedLong]})</string></dict>
+  <dict><key>display</key><string>xdmp:step64</string><key>insert</key><string>(${1:\$initial as xs:unsignedLong}, ${2:\$step as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:stop-journal-archiving</string><key>insert</key><string>(${1:\$forestIDs as unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:strftime</string><key>insert</key><string>(${1:\$format as xs:string}, ${2:\$value as xs:dateTime})</string></dict>
+  <dict><key>display</key><string>xdmp:subbinary</string><key>insert</key><string>(${1:\$source as binary()}, ${2:\$starting-location as xs:double}, ${3:[\$length as xs:double]})</string></dict>
+  <dict><key>display</key><string>xdmp:tidy</string><key>insert</key><string>(${1:\$doc as xs:string}, ${2:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:timestamp-to-wallclock</string><key>insert</key><string>(${1:\$timestamp as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:to-json</string><key>insert</key><string>(${1:\$item as item()*})</string></dict>
+  <dict><key>display</key><string>xdmp:trace</string><key>insert</key><string>(${1:\$name as xs:string}, ${2:\$value as item()*})</string></dict>
+  <dict><key>display</key><string>xdmp:transaction</string><key>insert</key><string>(${1:\$txn-name as xs:string}, ${2:\$host-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:transaction-commit</string><key>insert</key><string>(${1:\$host-id as xs:unsignedLong}, ${2:\$txn-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:transaction-rollback</string><key>insert</key><string>(${1:\$host-id as xs:unsignedLong}, ${2:\$txn-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:triggers-database</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:unpath</string><key>insert</key><string>(${1:\$expr as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:unquote</string><key>insert</key><string>(${1:\$arg as xs:string}, ${2:[\$default-namespace as xs:string?]}, ${3:[\$options as xs:string*]})</string></dict>
+  <dict><key>display</key><string>xdmp:uri-content-type</string><key>insert</key><string>(${1:\$uri as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:uri-format</string><key>insert</key><string>(${1:\$uri as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:uri-is-file</string><key>insert</key><string>(${1:\$uri as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:url-decode</string><key>insert</key><string>(${1:\$encoded as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:url-encode</string><key>insert</key><string>(${1:\$plaintext as xs:string}, ${2:[\$noSpacePlus as xs:boolean?]})</string></dict>
+  <dict><key>display</key><string>xdmp:user</string><key>insert</key><string>(${1:\$user as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:user-last-login</string><key>insert</key><string>(${1:\$user as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:user-roles</string><key>insert</key><string>(${1:\$name as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:validate</string><key>insert</key><string>(${1:\$node as node()}, ${2:[\$mode as xs:string]}, ${3:[\$mode as xs:string]}, ${4:[\$typeName as xs:QName]})</string></dict>
+  <dict><key>display</key><string>xdmp:value</string><key>insert</key><string>(${1:\$expr as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:version</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:wallclock-to-timestamp</string><key>insert</key><string>(${1:\$timestamp as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:with-namespaces</string><key>insert</key><string>(${1:\$nsbindings as xs:string*}, ${2:\$expr as item()*})</string></dict>
+  <dict><key>display</key><string>xdmp:word-convert</string><key>insert</key><string>(${1:\$doc as node()}, ${2:\$filename as xs:string}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:x509-certificate-extract</string><key>insert</key><string>(${1:\$cert as xs:string})</string></dict>
+  <dict><key>display</key><string>xdmp:xa-complete</string><key>insert</key><string>(${1:\$forestID as unsignedLong}, ${2:\$txn-id as xs:unsignedLong}, ${3:\$commit as xs:boolean}, ${4:\$remember as xs:boolean})</string></dict>
+  <dict><key>display</key><string>xdmp:xa-forget</string><key>insert</key><string>(${1:\$forestID as unsignedLong}, ${2:\$txn-id as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:xor64</string><key>insert</key><string>(${1:\$x as xs:unsignedLong}, ${2:\$y as xs:unsignedLong})</string></dict>
+  <dict><key>display</key><string>xdmp:xquery-version</string><key>insert</key><string>()</string></dict>
+  <dict><key>display</key><string>xdmp:xslt-eval</string><key>insert</key><string>(${1:\$stylesheet as element()}, ${2:\$input as node()?}, ${3:[\$params as map:map?]}, ${4:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:xslt-invoke</string><key>insert</key><string>(${1:\$path as xs:string}, ${2:\$input as node()?}, ${3:[\$params as map:map?]}, ${4:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:zip-create</string><key>insert</key><string>(${1:\$manifest as node()}, ${2:\$nodes as node()+})</string></dict>
+  <dict><key>display</key><string>xdmp:zip-get</string><key>insert</key><string>(${1:\$zipfile as binary()}, ${2:\$name as xs:string}, ${3:[\$options as node()?]})</string></dict>
+  <dict><key>display</key><string>xdmp:zip-manifest</string><key>insert</key><string>(${1:\$zipfile as binary()})</string></dict>
+</array>
+</plist>

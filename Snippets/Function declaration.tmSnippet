@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>declare function `ruby "$TM_BUNDLE_SUPPORT/get_module_prefix.rb" "$TM_FILEPATH"`:${1:funcname}()
+{
+  ${0:(: code goes here :)}
+};
+</string>
+	<key>name</key>
+	<string>Function declaration</string>
+	<key>scope</key>
+	<string>source.xquery</string>
+	<key>tabTrigger</key>
+	<string>func</string>
+	<key>uuid</key>
+	<string>E16A427A-DE27-4A48-897D-D571C8819C81</string>
+</dict>
+</plist>

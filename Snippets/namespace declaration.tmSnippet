@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>declare namespace namespace ${1:ns} = ${2:"http://namespace-uri"};</string>
+	<key>name</key>
+	<string>namespace declaration</string>
+	<key>scope</key>
+	<string>source.xquery</string>
+	<key>tabTrigger</key>
+	<string>ns</string>
+	<key>uuid</key>
+	<string>FFF4320F-79FF-4FA8-A6C0-A3413AB72FEF</string>
+</dict>
+</plist>

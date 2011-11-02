@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>(:~
+ : ${1:Function description}
+ :
+ : @param ${2:\$function-param} - ${3:description of param}
+ : @return - ${4:description of return}
+ :)</string>
+	<key>keyEquivalent</key>
+	<string>@d</string>
+	<key>name</key>
+	<string>xqDoc</string>
+	<key>scope</key>
+	<string>source.xquery</string>
+	<key>tabTrigger</key>
+	<string>(:</string>
+	<key>uuid</key>
+	<string>615DF8D7-9798-4853-8490-F8F9A30C69F6</string>
+</dict>
+</plist>
