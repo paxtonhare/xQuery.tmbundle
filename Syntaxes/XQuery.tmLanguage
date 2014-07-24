@@ -36,27 +36,41 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>&lt;!\[CDATA\[</string>
-			<key>beginCaptures</key>
+			<string>(&lt;\?)\s*([-_a-zA-Z0-9]+)</string>
+			<key>captures</key>
 			<dict>
-				<key>0</key>
+				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.begin.xml</string>
+					<string>punctuation.definition.tag.begin.xml</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.xml</string>
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>]]&gt;</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.xml</string>
-				</dict>
-			</dict>
+			<string>(\?&gt;)</string>
 			<key>name</key>
-			<string>string.unquoted.cdata.xml</string>
+			<string>meta.tag.preprocessor.xml</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string> ([a-zA-Z-]+)</string>
+					<key>name</key>
+					<string>entity.other.attribute-name.xml</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#doublequotedString</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#singlequotedString</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -146,44 +160,74 @@
 			<string>support.constant.xquery</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>(declare)\s+(private\s+)?(function)\s+((?:([\-_a-zA-Z0-9]+):)?([\-_a-zA-Z0-9]+))\s*\(</string>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.control.declare.xquery</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>storage.modifier.xquery</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>storage.type.function.xquery</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function.xquery</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\)</string>
 			<key>name</key>
 			<string>meta.function.xquery</string>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>include</key>
-					<string>#function_parameters</string>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.type.function.xquery</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.function.xquery</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(function)\s+((?:([\-_a-zA-Z0-9]+):)?([\-_a-zA-Z0-9]+))\s*\(</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#function_parameters</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>$self</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>$self</string>
+					<key>begin</key>
+					<string>\s*(function)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.type.function.xquery</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\(</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.function.xquery</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>((?:([\-_a-zA-Z0-9]+):)?([\-_a-zA-Z0-9]+))</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#function_parameters</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>$self</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
@@ -200,15 +244,49 @@
 					<key>name</key>
 					<string>storage.type.variable.xquery</string>
 				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.variable.xquery</string>
+				</dict>
 			</dict>
 			<key>match</key>
-			<string>(declare)\s+(variable)</string>
+			<string>(declare)\s+(variable)\s+(\$(?:[\-_a-zA-Z0-9]+:)?[\-_a-zA-Z0-9]+)</string>
+			<key>name</key>
+			<string>meta.variable.xquery</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(declare)\s+(variable)\s*</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.xquery</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.variable.xquery</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(\$(?:[\-_a-zA-Z0-9]+:)?[\-_a-zA-Z0-9]+)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.variable.xquery</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>meta.variable.xquery</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(declare|namespace|preserve|no-preserve|inherit|no-inherit|strip|boundary-space|default|instance|option|copy-namespaces|xdmp:mapping)\b</string>
+			<string>\b(base-uri|boundary-space|collation|construction|copy-namespaces|declare|default|element|empty|function|greatest|import|inherit|instance|least|module|namespace|no-inherit|no-preserve|option|order|ordered|ordering|preserve|strip|unordered|variable|xdmp:mapping|xdmp:transaction-mode)\b</string>
 			<key>name</key>
 			<string>keyword.other.prolog.xquery</string>
 		</dict>
@@ -240,7 +318,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?&lt;![:\-_a-zA-Z0-9])(element|attribute|document|document-node|schema-element|schema-attribute|processing-instruction|comment|text|node)(?![:\-_a-zA-Z0-9])</string>
+			<string>(?&lt;![:\-_a-zA-Z0-9])(element|attribute|document|document-node|empty-sequence|schema-element|schema-attribute|processing-instruction|comment|text|node)(?![:\-_a-zA-Z0-9])</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -256,27 +334,33 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;![:\-_a-zA-Z0-9])((fn:)?(abs|adjust-date-to-timezone|adjust-date-to-timezone|adjust-dateTime-to-timezone|adjust-dateTime-to-timezone|adjust-time-to-timezone|adjust-time-to-timezone|avg|base-uri|base-uri|boolean|ceiling|codepoint-equal|codepoints-to-string|collection|collection|compare|concat|contains|count|current-date|current-dateTime|current-time|data|dateTime|day-from-date|day-from-dateTime|days-from-duration|deep-equal|default-collation|distinct-values|distinct-values|doc|doc-available|document-uri|empty|ends-with|error|escape-uri|exactly-one|exists|false|floor|hours-from-dateTime|hours-from-duration|hours-from-time|id|idref|implicit-timezone|in-scope-prefixes|index-of|insert-before|lang|last|local-name|local-name-from-QName|lower-case|matches|max|min|minutes-from-dateTime|minutes-from-duration|minutes-from-time|month-from-date|month-from-dateTime|months-from-duration|name|namespace-uri|namespace-uri-for-prefix|namespace-uri-from-QName|nilled|node-name|normalize-space|normalize-unicode|not|number|one-or-more|position|prefix-from-QName|QName|remove|replace|resolve-QName|resolve-uri|reverse|root|round|round-half-to-even|seconds-from-dateTime|seconds-from-duration|seconds-from-time|starts-with|static-base-uri|string|string-join|string-length|string-to-codepoints|subsequence|substring|substring-after|substring-before|sum|timezone-from-date|timezone-from-dateTime|timezone-from-time|tokenize|trace|translate|true|unordered|upper-case|year-from-date|year-from-dateTime|years-from-duration|zero-or-one))(?=\s*\()</string>
+			<string>(?&lt;![:\-_a-zA-Z0-9])((fn:)?(abs|adjust-date-to-timezone|adjust-dateTime-to-timezone|adjust-time-to-timezone|analyze-string|avg|base-uri|boolean|ceiling|codepoint-equal|codepoints-to-string|collection|compare|concat|contains|count|current-date|current-dateTime|current-time|data|dateTime|day-from-date|day-from-dateTime|days-from-duration|deep-equal|default-collation|distinct-values|doc|doc-available|document|document-uri|empty|encode-for-uri|ends-with|error|escape-html-uri|escape-uri|exactly-one|exists|false|filter|floor|fold-left|fold-right|format-date|format-dateTime|format-number|format-time|function-arity|function-available|function-lookup|function-name|generate-id|head|hours-from-dateTime|hours-from-duration|hours-from-time|id|idref|implicit-timezone|in-scope-prefixes|index-of|insert-before|iri-to-uri|lang|last|local-name|local-name-from-QName|lower-case|map|map-pairs|matches|max|min|minutes-from-dateTime|minutes-from-duration|minutes-from-time|month-from-date|month-from-dateTime|months-from-duration|name|namespace-uri|namespace-uri-for-prefix|namespace-uri-from-QName|nilled|node-name|normalize-space|normalize-unicode|not|number|one-or-more|position|prefix-from-QName|QName|remove|replace|resolve-QName|resolve-uri|reverse|root|round|round-half-to-even|seconds-from-dateTime|seconds-from-duration|seconds-from-time|starts-with|static-base-uri|string|string-join|string-length|string-to-codepoints|subsequence|substring|substring-after|substring-before|sum|tail|timezone-from-date|timezone-from-dateTime|timezone-from-time|tokenize|trace|translate|true|type-available|unordered|unparsed-text|unparsed-text-available|upper-case|year-from-date|year-from-dateTime|years-from-duration|zero-or-one))(?=\s*\()</string>
 			<key>name</key>
 			<string>support.function.builtin.xquery</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(declare|module|namespace|element|variable|base-uri|collation|import|construction|ordering|ordered|unordered|order|empty|greatest|least|function|preserve|no-preserve|inherit|no-inherit|strip|boundary-space|default|instance|option|copy-namespaces)\b</string>
-			<key>name</key>
-			<string>keyword.other.prolog.xquery</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?&lt;![:\-_a-zA-Z0-9])(xdmp:(access|add-response-header|add64|amp|amp-roles|and64|apply|architecture|base64-decode|base64-encode|binary-decode|can-grant-roles|castable-as|collation-canonical-uri|collection-delete|collection-locks|collection-properties|crypt|current-last|current-position|database|database-backup|database-backup-cancel|database-backup-purge|database-backup-status|database-backup-validate|database-forests|database-name|database-restore|database-restore-cancel|database-restore-status|database-restore-validate|databases|default-collections|default-permissions|describe|diacritic-less|directory|directory-create|directory-delete|directory-locks|directory-properties|document-add-collections|document-add-permissions|document-add-properties|document-assign|document-delete|document-forest|document-get|document-get-collections|document-get-permissions|document-get-properties|document-get-quality|document-insert|document-load|document-locks|document-properties|document-remove-collections|document-remove-permissions|document-remove-properties|document-set-collections|document-set-permissions|document-set-properties|document-set-property|document-set-quality|elapsed-time|element-content-type|email|encoding-language-detect|estimate|eval|eval-in|excel-convert|exists|filesystem-directory|filesystem-directory-create|filesystem-file|forest|forest-backup|forest-clear|forest-counts|forest-databases|forest-name|forest-restart|forest-restore|forest-rollback|forest-status|forests|format-number|from-json|function|function-module|function-name|get|get-current-roles|get-current-user|get-request-body|get-request-client-address|get-request-client-certificate|get-request-field|get-request-field-content-type|get-request-field-filename|get-request-field-names|get-request-header|get-request-header-names|get-request-method|get-request-path|get-request-protocol|get-request-url|get-request-user|get-request-username|get-response-code|get-response-encoding|get-server-field|get-server-field-names|get-session-field|get-session-field-names|get-url-rewriter-path|group|group-hosts|group-name|group-servers|groups|has-privilege|hash32|hash64|hex-to-integer|host|host-name|host-status|hosts|http-delete|http-get|http-head|http-options|http-post|http-put|integer-to-hex|integer-to-octal|invoke|invoke-in|key-from-QName|load|lock-acquire|lock-for-update|lock-release|log|log-level|login|logout|lshift64|md5|merge|merge-cancel|merging|modules-database|modules-root|mul64|node-database|node-delete|node-insert-after|node-insert-before|node-insert-child|node-kind|node-replace|node-uri|not64|octal-to-integer|or64|parse-dateTime|parse-yymmdd|path|pdf-convert|permission|plan|platform|powerpoint-convert|pretty-print|privilege|privilege-roles|product-edition|QName-from-key|query-meters|query-trace|quote|random|redirect-response|request|request-cancel|request-status|request-timestamp|restart|rethrow|role|role-roles|rshift64|save|schema-database|security-assert|security-database|server|server-name|server-status|servers|set|set-request-time-limit|set-response-code|set-response-content-type|set-response-encoding|set-server-field|set-server-field-privilege|set-session-field|shutdown|sleep|spawn|spawn-in|step64|strftime|subbinary|tidy|to-json|trace|triggers-database|unpath|unquote|uri-content-type|uri-format|uri-is-file|url-decode|url-encode|user|user-last-login|user-roles|value|version|with-namespaces|word-convert|x509-certificate-extract|xor64|xquery-version|xslt-eval|xslt-invoke|zip-create|zip-get|zip-manifest))(?=\s*\()</string>
+			<string>(?&lt;![:\-_a-zA-Z0-9])(xdmp:(access|add-response-header|add64|address-bindable|amp|amp-roles|and64|annotation|apply|architecture|atomizable|audit|aws-url-encode|base64-decode|base64-encode|binary-decode|binary-is-external|binary-is-large|binary-is-small|binary-join|binary-key|binary-offset|binary-original-length|binary-size|cache-status|can-grant-roles|castable-as|cluster|cluster-name|collation-canonical-uri|collection-delete|collection-locks|collection-properties|commit|compressed-tree-cache-clear|compressed-tree-cache-partitions|compressed-tree-cache-size|configuration-timestamp|content-type|crypt|crypt2|customized-binary|data-directory|database|database-backup|database-backup-cancel|database-backup-purge|database-backup-status|database-backup-validate|database-forests|database-fragment-counts|database-global-nonblocking-timestamp|database-is-replica|database-maintain-last-modified|database-name|database-nonblocking-timestamp|database-partition-forests|database-path-namespaces|database-restore|database-restore-cancel|database-restore-status|database-restore-validate|databases|dayname-from-date|debug-print|decode-from-NCName|default-collections|default-in-memory-limit|default-in-memory-list-size|default-in-memory-range-index-size|default-in-memory-reverse-index-size|default-in-memory-tree-size|default-in-memory-triple-index-size|default-journal-count|default-journal-size|default-license-key|default-licensee|default-permissions|default-preallocate-journals|default-s3-domain|default-zone|delete-cluster-config-file|delete-host-config-file|describe|diacritic-less|directory|directory-create|directory-delete|directory-locks|directory-properties|disable-event|document-add-collections|document-add-permissions|document-add-properties|document-assign|document-delete|document-filter|document-forest|document-get|document-get-collections|document-get-events|document-get-permissions|document-get-properties|document-get-quality|document-insert|document-load|document-locks|document-properties|document-remove-collections|document-remove-permissions|document-remove-properties|document-set-collections|document-set-permissions|document-set-properties|document-set-property|document-set-quality|document-timestamp|dsa-generate|dump-paths|dump-xsd|duplicates|eager|ec2-host|ec2-product-code|elapsed-time|element-content-type|email|email-address|enable-event|encode-for-NCName|encoding-language-detect|estimate|eval|eval-in|excel-convert|exists|expanded-tree-cache-clear|expanded-tree-cache-partitions|expanded-tree-cache-size|external-binary|external-binary-path|external-security|filesystem-directory|filesystem-directory-create|filesystem-directory-delete|filesystem-file|filesystem-file-delete|filesystem-file-exists|filesystem-file-length|filesystem-file-rename|filesystem-filepath|foreign-cluster-status|foreign-clusters|forest|forest-backup|forest-clear|forest-combine|forest-compare|forest-copy|forest-counts|forest-databases|forest-delete|forest-directory-delete|forest-directory-exists|forest-docinfos|forest-get-readonly|forest-host|forest-name|forest-online|forest-open-replica|forest-rename|forest-restart|forest-restore|forest-rollback|forest-set-readonly|forest-status|forest-updates-allowed|forests|format-number|from-json|function|function-module|function-name|function-parameter-name|function-parameter-type|function-return-type|function-signature|functions|get|get-current-roles|get-current-user|get-current-userid|get-external-variable|get-hot-updates|get-invoked-path|get-ip|get-original-url|get-orphaned-binaries|get-request-body|get-request-client-address|get-request-client-certificate|get-request-field|get-request-field-content-type|get-request-field-filename|get-request-field-names|get-request-header|get-request-header-names|get-request-method|get-request-part-body|get-request-part-headers|get-request-path|get-request-port|get-request-protocol|get-request-url|get-request-user|get-request-username|get-response-code|get-response-encoding|get-server-field|get-server-field-names|get-session-field|get-session-field-names|get-transaction-by-xid|get-transaction-mode|get-url-rewriter-path|getenv|group|group-hosts|group-name|group-servers|groups|gss-server-negotiate|gunzip|gzip|has-privilege|hash32|hash64|hex-to-integer|hmac-md5|hmac-sha1|hmac-sha256|hmac-sha512|host|host-cores|host-cpus|host-forests|host-get-ssl-fips-enabled|host-name|host-size|host-status|hostname|hosts|http-delete|http-get|http-head|http-options|http-post|http-put|initcap|install-directory|integer-to-hex|integer-to-octal|invoke|invoke-function|invoke-in|jobject|key-from-QName|language-stemmer-normalization|language-tokenizer-normalization|lazy|ldap-lookup|ldap-search|license-key|license-key-agreement|license-key-cores|license-key-cpus|license-key-decode|license-key-encode|license-key-expires|license-key-options|license-key-size|license-key-valid|license-key-version|licensee|list-cache-clear|list-cache-partitions|list-cache-size|load|lock-acquire|lock-for-update|lock-release|log|log-level|login|logout|lshift64|match-priority|md5|merge|merge-cancel|merging|missing-directories|modules-database|modules-root|month-name-from-date|mul64|multipart-decode|multipart-encode|n3|n3-get|node-database|node-delete|node-insert-after|node-insert-before|node-insert-child|node-kind|node-output-definition|node-replace|node-uri|not64|nquad|nquad-get|octal-to-integer|or64|original-binary|parse-dateTime|parse-yymmdd|path|pdf-convert|permission|plan|plannable|platform|position|powerpoint-convert|pre-release-expires|pretty-print|privilege|privilege-roles|product-edition|product-environment|product-initials|product-name|QName-from-key|quality|quarter-from-date|query-forests|query-meters|query-trace|quote|random|read-cluster-config-file|read-host-config-file|redirect-response|remove-orphaned-binary|request|request-cancel|request-key|request-status|request-timestamp|resolve-uri|restart|rethrow|role|role-roles|rollback|rsa-generate|rshift64|save|schema-database|score|security-assert|security-database|security-version|server|server-backup|server-name|server-restore|server-status|servers|set|set-current-transaction|set-hot-updates|set-request-time-limit|set-response-code|set-response-content-type|set-response-encoding|set-server-field|set-server-field-privilege|set-session-field|set-transaction-mode|set-transaction-name|set-transaction-time-limit|sha1|sha256|sha384|sha512|shutdown|sleep|smtp-relay|spawn|spawn-function|spawn-in|sql|start-journal-archiving|step64|stop-journal-archiving|strftime|subbinary|test-future|test-lazy|test-skiplist|tidy|timestamp-to-wallclock|to-json|trace|transaction|transaction-commit|transaction-create|transaction-rollback|triggers-database|triple-cache-partitions|triple-cache-size|triple-value-cache-partitions|triple-value-cache-size|turtle|turtle-get|type|unpath|unquote|update|uri-content-type|uri-format|uri-is-file|url-decode|url-encode|user|user-external-security|user-last-login|user-roles|username|validate|value|version|wallclock-to-timestamp|week-from-date|weekday-from-date|word-convert|write-cluster-config-file|write-host-config-file|x509-certificate-extract|x509-certificate-generate|x509-crl-der2pem|x509-crl-extract|x509-crl-generate|x509-request-extract|x509-request-generate|xa-complete|xa-complete-xid|xa-complete1|xa-forget|xa-forget-xid|xa-prepare|xor64|xquery-version|xslt-eval|xslt-invoke|yearday-from-date|zip-create|zip-get|zip-manifest))(?=\s*\()</string>
 			<key>name</key>
 			<string>support.function.marklogic.xquery</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;![:\-_a-zA-Z0-9])(xdmp:([\-_a-zA-Z0-9][\-\._a-zA-Z0-9]*:)?([\-_a-zA-Z0-9][\-\._a-zA-Z0-9]*))</string>
+			<string>(?&lt;![:\-_a-zA-Z0-9])(cts:(aggregate|and-not-query|and-not-query-negative-query|and-not-query-positive-query|and-query|and-query-options|and-query-queries|approx-center|arc-intersection|avg|avg-aggregate|bearing|boost-query|boost-query-boosting-query|boost-query-matching-query|bounding-boxes|box|box-east|box-intersects|box-north|box-south|box-west|circle|circle-center|circle-intersects|circle-radius|classify|cluster|codepoint-tokenizer-class|collection-match|collection-query|collection-query-uris|collection-reference|collections|complex-polygon|complex-polygon-contains|complex-polygon-inner|complex-polygon-intersects|complex-polygon-outer|confidence|contains|correlation|count|count-aggregate|covariance|covariance-p|deregister|destination|directory-query|directory-query-depth|directory-query-uris|distance|distinctive-terms|document-fragment-query|document-fragment-query-query|document-query|document-query-uris|element-attribute-pair-geospatial-boxes|element-attribute-pair-geospatial-query|element-attribute-pair-geospatial-query-element-name|element-attribute-pair-geospatial-query-latitude-name|element-attribute-pair-geospatial-query-longitude-name|element-attribute-pair-geospatial-query-options|element-attribute-pair-geospatial-query-region|element-attribute-pair-geospatial-query-weight|element-attribute-pair-geospatial-value-match|element-attribute-pair-geospatial-values|element-attribute-range-query|element-attribute-range-query-attribute-name|element-attribute-range-query-element-name|element-attribute-range-query-operator|element-attribute-range-query-options|element-attribute-range-query-value|element-attribute-range-query-weight|element-attribute-reference|element-attribute-value-co-occurrences|element-attribute-value-geospatial-co-occurrences|element-attribute-value-match|element-attribute-value-query|element-attribute-value-query-attribute-name|element-attribute-value-query-element-name|element-attribute-value-query-options|element-attribute-value-query-text|element-attribute-value-query-weight|element-attribute-value-ranges|element-attribute-values|element-attribute-word-match|element-attribute-word-query|element-attribute-word-query-attribute-name|element-attribute-word-query-element-name|element-attribute-word-query-options|element-attribute-word-query-text|element-attribute-word-query-weight|element-attribute-words|element-child-geospatial-boxes|element-child-geospatial-query|element-child-geospatial-query-child-name|element-child-geospatial-query-element-name|element-child-geospatial-query-options|element-child-geospatial-query-region|element-child-geospatial-query-weight|element-child-geospatial-value-match|element-child-geospatial-values|element-geospatial-boxes|element-geospatial-query|element-geospatial-query-element-name|element-geospatial-query-options|element-geospatial-query-region|element-geospatial-query-weight|element-geospatial-value-match|element-geospatial-values|element-pair-geospatial-boxes|element-pair-geospatial-query|element-pair-geospatial-query-element-name|element-pair-geospatial-query-latitude-name|element-pair-geospatial-query-longitude-name|element-pair-geospatial-query-options|element-pair-geospatial-query-region|element-pair-geospatial-query-weight|element-pair-geospatial-value-match|element-pair-geospatial-values|element-query|element-query-element-name|element-query-query|element-range-query|element-range-query-element-name|element-range-query-operator|element-range-query-options|element-range-query-value|element-range-query-weight|element-reference|element-value-co-occurrences|element-value-geospatial-co-occurrences|element-value-match|element-value-query|element-value-query-element-name|element-value-query-options|element-value-query-text|element-value-query-weight|element-value-ranges|element-values|element-word-match|element-word-query|element-word-query-element-name|element-word-query-options|element-word-query-text|element-word-query-weight|element-words|field-range-query|field-range-query-field-name|field-range-query-operator|field-range-query-options|field-range-query-value|field-range-query-weight|field-reference|field-value-co-occurrences|field-value-match|field-value-query|field-value-query-field-name|field-value-query-options|field-value-query-text|field-value-query-weight|field-value-ranges|field-values|field-word-match|field-word-query|field-word-query-field-name|field-word-query-options|field-word-query-text|field-word-query-weight|field-words|fitness|frequency|geospatial-attribute-pair-reference|geospatial-co-occurrences|geospatial-element-attribute-pair-reference|geospatial-element-child-reference|geospatial-element-pair-reference|geospatial-element-reference|geospatial-path-reference|hash-terms|index-path-key|index-path-keys|index-path-ns-prefixes|linear-model|linestring|linestring-vertices|locks-query|locks-query-query|long-lat-point|matches|max|median|min|near-query|near-query-distance|near-query-options|near-query-queries|near-query-weight|not-in-query|not-in-query-negative-query|not-in-query-positive-query|not-query|not-query-query|not-query-weight|or-query|or-query-queries|parse|parse-wkt|path-geospatial-query|path-geospatial-query-options|path-geospatial-query-path-expression|path-geospatial-query-region|path-geospatial-query-weight|path-range-query|path-range-query-operator|path-range-query-options|path-range-query-path-name|path-range-query-value|path-range-query-weight|path-reference|percent-rank|percentile|point|point-latitude|point-longitude|polygon|polygon-contains|polygon-intersects|polygon-vertices|properties-query|properties-query-query|punctuation|quality|query|rank|reference|reference-parse|region|region-contains|region-intersects|register|registered-query|registered-query-ids|registered-query-options|registered-query-weight|relevance-info|remainder|reverse-query|reverse-query-nodes|reverse-query-weight|score|search|shortest-distance|show-get-query|similar-query|similar-query-nodes|similar-query-weight|space|special|stddev|stddev-p|stem|sum|sum-aggregate|term-query|term-query-term|term-query-weight|thresholds|time-series|timestamp-query|to-wkt|token|tokenize|train|triple-range-query|triple-range-query-object|triple-range-query-operator|triple-range-query-options|triple-range-query-predicate|triple-range-query-subject|triple-range-query-weight|triples|uri-match|uri-reference|uris|valid-index-path|value-co-occurrences|value-match|value-ranges|value-tuples|values|variance|variance-p|word|word-match|word-query|word-query-options|word-query-text|word-query-weight|words))(?=\s*\()</string>
 			<key>name</key>
-			<string>invalid.function.marklogic</string>
+			<string>support.function.cts.xquery</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;![:\-_a-zA-Z0-9])(xdmp:([\-_a-zA-Z0-9][\-\._a-zA-Z0-9]*:)?([\-_a-zA-Z0-9][\-\._a-zA-Z0-9]*))\s*\(</string>
+			<key>name</key>
+			<string>invalid.illegal.function.xdmp</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;![:\-_a-zA-Z0-9])(cts:([\-_a-zA-Z0-9][\-\._a-zA-Z0-9]*:)?([\-_a-zA-Z0-9][\-\._a-zA-Z0-9]*))\s*\(</string>
+			<key>name</key>
+			<string>invalid.illegal.function.cts</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -313,6 +397,10 @@
 				</dict>
 			</array>
 		</dict>
+		<dict>
+			<key>include</key>
+			<string>#function_call</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
@@ -325,7 +413,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.tag.xml</string>
+					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -354,7 +442,11 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#xmlString</string>
+					<string>#doublequotedStringXml</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#singlequotedStringXml</string>
 				</dict>
 			</array>
 		</dict>
@@ -370,7 +462,7 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.tag.xml</string>
+							<string>punctuation.definition.tag.begin.xml</string>
 						</dict>
 						<key>2</key>
 						<dict>
@@ -392,11 +484,11 @@
 						</dict>
 						<dict>
 							<key>include</key>
-							<string>#doublequotedXmlString</string>
+							<string>#doublequotedString</string>
 						</dict>
 						<dict>
 							<key>include</key>
-							<string>#singlequotedXmlString</string>
+							<string>#singlequotedString</string>
 						</dict>
 					</array>
 				</dict>
@@ -408,7 +500,7 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.tag.xml</string>
+							<string>punctuation.definition.tag.begin.xml</string>
 						</dict>
 						<key>2</key>
 						<dict>
@@ -451,13 +543,29 @@
 				</dict>
 				<dict>
 					<key>begin</key>
+					<string>&lt;\?</string>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.processing-instruction.xml</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\?&gt;</string>
+					<key>name</key>
+					<string>comment.processing-instruction.xml</string>
+				</dict>
+				<dict>
+					<key>begin</key>
 					<string>(&lt;)((?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9:]+))(?=(\s[^&gt;]*)?&gt;&lt;/\2&gt;)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.tag.xml</string>
+							<string>punctuation.definition.tag.begin.xml</string>
 						</dict>
 						<key>3</key>
 						<dict>
@@ -481,43 +589,48 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(&gt;(&lt;))/(?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9:]+)(&gt;)</string>
+					<string>(&gt;)(&lt;)(/)(?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9:]+)(&gt;)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.tag.xml</string>
+							<string>punctuation.definition.tag.end.xml</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>meta.scope.between-tag-pair.xml</string>
+							<string>punctuation.definition.tag.begin.xml meta.scope.between-tag-pair.xml</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.tag.namespace.xml</string>
+							<string>punctuation.definition.tag.begin.xml</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.tag.xml</string>
+							<string>entity.name.tag.namespace.xml</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.separator.namespace.xml</string>
+							<string>entity.name.tag.xml</string>
 						</dict>
 						<key>6</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.tag.localname.xml</string>
+							<string>punctuation.separator.namespace.xml</string>
 						</dict>
 						<key>7</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.tag.xml</string>
+							<string>entity.name.tag.localname.xml</string>
+						</dict>
+						<key>8</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.tag.end.xml</string>
 						</dict>
 					</dict>
 					<key>name</key>
@@ -532,45 +645,13 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?x:
-                        (&lt;)
-                        (
-                          (?:
-                            ([-_a-zA-Z0-9]+)(:)
-                          )?
-                          ([-_a-zA-Z0-9:]+)
-                        )
-                        (?=[^&gt;]*/&gt;)
-				    )</string>
-					<key>end</key>
-					<string>/&gt;</string>
-					<key>name</key>
-					<string>meta.tag.self-closing.xml</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#tagStuff</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>(?x:
-                      (&lt;)
-                      (
-                        (?:
-                          ([-_a-zA-Z0-9]+)(:)
-                        )?
-                        ([-_a-zA-Z0-9:]+)
-                      )
-                    )</string>
-					<key>beginCaptures</key>
+					<string>(&lt;/?)(?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9:]+)</string>
+					<key>captures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.tag.xml</string>
+							<string>punctuation.definition.tag.begin.xml</string>
 						</dict>
 						<key>2</key>
 						<dict>
@@ -594,13 +675,13 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(&lt;/\2&gt;)</string>
+					<string>(/?&gt;)</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.tag.xml</string>
+							<string>punctuation.definition.tag.end.xml</string>
 						</dict>
 					</dict>
 					<key>name</key>
@@ -611,15 +692,39 @@
 							<key>include</key>
 							<string>#tagStuff</string>
 						</dict>
-						<dict>
-							<key>include</key>
-							<string>#Xml</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#xml_content</string>
-						</dict>
 					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#entity</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#bare-ampersand</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>&lt;!\[CDATA\[</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.begin.xml</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>]]&gt;</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.end.xml</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.unquoted.cdata.xml</string>
 				</dict>
 			</array>
 		</dict>
@@ -663,13 +768,13 @@
 		<key>doublequotedString</key>
 		<dict>
 			<key>begin</key>
-			<string>"</string>
+			<string>(?&lt;![-_a-zA-Z0-9:]&gt;)\s*"(?!\s*&lt;/[-_a-zA-Z0-9:])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.begin.xml</string>
+					<string>punctuation.definition.string.begin.xquery</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -679,7 +784,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.end.xml</string>
+					<string>punctuation.definition.string.end.xquery</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -696,7 +801,7 @@
 				</dict>
 			</array>
 		</dict>
-		<key>doublequotedXmlString</key>
+		<key>doublequotedStringXml</key>
 		<dict>
 			<key>begin</key>
 			<string>"</string>
@@ -719,7 +824,7 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>string.quoted.double.xquery</string>
+			<string>string.quoted.double.xml</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -745,11 +850,6 @@
 					<key>name</key>
 					<string>punctuation.definition.constant.xml</string>
 				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.constant.xml</string>
-				</dict>
 			</dict>
 			<key>match</key>
 			<string>(&amp;)([:a-zA-Z_][:a-zA-Z0-9_.-]*|#[0-9]+|#x[0-9a-fA-F]+)(;)</string>
@@ -758,9 +858,7 @@
 		</dict>
 		<key>function_call</key>
 		<dict>
-			<key>begin</key>
-			<string>[\-_a-zA-Z0-9]+:[\-_a-zA-Z0-9]+(\()</string>
-			<key>beginCaptures</key>
+			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
@@ -768,27 +866,10 @@
 					<string>punctuation.definition.parameters.begin.xquery</string>
 				</dict>
 			</dict>
-			<key>end</key>
-			<string>(\))</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.parameters.end.xquery</string>
-				</dict>
-			</dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>$self</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#function_call</string>
-				</dict>
-			</array>
+			<key>match</key>
+			<string>[\-_a-zA-Z0-9]+:[\-_a-zA-Z0-9]+(?=\()</string>
+			<key>name</key>
+			<string>support.function.xquery</string>
 		</dict>
 		<key>function_parameters</key>
 		<dict>
@@ -848,13 +929,13 @@
 		<key>singlequotedString</key>
 		<dict>
 			<key>begin</key>
-			<string>'</string>
+			<string>(?&lt;![-_a-zA-Z0-9:]&gt;)\s*'(?!\s*&lt;/[-_a-zA-Z0-9:])</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.begin.xml</string>
+					<string>punctuation.definition.string.begin.xquery</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -864,7 +945,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.end.xml</string>
+					<string>punctuation.definition.string.end.xquery</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -881,7 +962,7 @@
 				</dict>
 			</array>
 		</dict>
-		<key>singlequotedXmlString</key>
+		<key>singlequotedStringXml</key>
 		<dict>
 			<key>begin</key>
 			<string>'</string>
@@ -904,7 +985,7 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>string.quoted.single.xquery</string>
+			<string>string.quoted.single.xml</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -927,11 +1008,11 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#doublequotedString</string>
+					<string>#singlequotedString</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#singlequotedString</string>
+					<string>#doublequotedString</string>
 				</dict>
 			</array>
 		</dict>
@@ -964,48 +1045,22 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string> (?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9]+)=</string>
+					<string>(?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9]+)=</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#xmlString</string>
-				</dict>
-			</array>
-		</dict>
-		<key>xmlString</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#doublequotedXmlString</string>
+					<string>#doublequotedStringXml</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#singlequotedXmlString</string>
-				</dict>
-			</array>
-		</dict>
-		<key>xml_content</key>
-		<dict>
-			<key>begin</key>
-			<string>(?&lt;=&gt;)(?=[^&lt;]+)</string>
-			<key>end</key>
-			<string>(?=&lt;)</string>
-			<key>name</key>
-			<string>meta.xml-content.xquery</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#code_block</string>
+					<string>#singlequotedStringXml</string>
 				</dict>
 			</array>
 		</dict>
 	</dict>
 	<key>scopeName</key>
-	<string>source.xquery</string>
+	<string>source.xquery-ml</string>
 	<key>uuid</key>
-	<string>5FB86104-E38E-4DAA-B929-DF98011DECBD</string>
+	<string>cddd8a73-ed1e-4303-a649-a23e816fafa1</string>
 </dict>
 </plist>
