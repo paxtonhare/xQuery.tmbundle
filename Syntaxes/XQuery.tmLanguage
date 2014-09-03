@@ -194,7 +194,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>\s*(function)</string>
+						<string>\s*(function)\s+(?!namespace)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -286,7 +286,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(base-uri|boundary-space|collation|construction|copy-namespaces|declare|default|element|empty|function|greatest|import|inherit|instance|least|module|namespace|no-inherit|no-preserve|option|order|ordered|ordering|preserve|strip|unordered|variable|xdmp:mapping|xdmp:transaction-mode)\b</string>
+				<string>\b(base-uri|boundary-space|collation|construction|copy-namespaces|declare|default|element|empty(?![-])|function|greatest|import|inherit|instance|least|module|namespace|no-inherit|no-preserve|option|order|ordered|ordering|preserve|strip|unordered|variable|xdmp:mapping|xdmp:transaction-mode)\b</string>
 			<key>name</key>
 			<string>keyword.other.prolog.xquery</string>
 		</dict>
@@ -318,7 +318,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?&lt;![:\-_a-zA-Z0-9])(element|attribute|document|document-node|empty-sequence|schema-element|schema-attribute|processing-instruction|comment|text|node)(?![:\-_a-zA-Z0-9])</string>
+				<string>(?&lt;![:\-_a-zA-Z0-9])(element|attribute|document|document-node\(\)|empty-sequence\(\)|schema-element|schema-attribute|processing-instruction|comment|text|node)(?![:\-_a-zA-Z0-9])</string>
 		</dict>
 		<dict>
 			<key>match</key>
